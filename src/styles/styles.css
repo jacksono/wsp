@@ -31,10 +31,16 @@ a.active {
 }
 .body{
   margin-top: 20px;
-  background-color: #726a95;
+  background-color: #575171;
 }
 .img{
 padding-left: 10px;
+float:left;
+}
+.btn-img{
+margin-left: 20px;
+margin-right: 60px;
+float: left;
 }
 .category{
   position: relative;
@@ -46,4 +52,23 @@ padding-left: 10px;
 .btn-right{
   float: right;
   margin-right: 45px;
+}
+.patient-header {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    padding-right: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    width: 400px;
+    background: white;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+}
+.title{
+  margin-right: 70px;
 }

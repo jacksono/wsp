@@ -10,7 +10,7 @@ export default class HomePage extends React.Component {
             <div className='form-group'>
               <div className='btn-right'>
                   <input className='btn btn-success form-control'
-                         name='edit'
+                         name='search'
                          type='button'
                          value='S E A R C H'
                          onClick=''
@@ -21,7 +21,7 @@ export default class HomePage extends React.Component {
             <div className='form-group'>
               <div className=' category col-sm-3'>
                   <input className='btn form-control'
-                         name='edit'
+                         name='praise'
                          type='button'
                          value='P R A I S E'
                          onClick=''
@@ -32,7 +32,7 @@ export default class HomePage extends React.Component {
             <div className='form-group'>
               <div className=' category col-sm-3'>
                   <input className='btn form-control'
-                         name='edit'
+                         name='worship'
                          type='button'
                          value='W O R S H I P'
                          onClick=''
@@ -43,7 +43,7 @@ export default class HomePage extends React.Component {
             <div className='form-group'>
               <div className=' category col-sm-3'>
                   <input className='btn form-control'
-                         name='edit'
+                         name='other'
                          type='button'
                          value='O T H E R'
                          onClick=''
