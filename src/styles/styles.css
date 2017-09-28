@@ -27,6 +27,7 @@ a.active {
 
 .float-right{
   float: right;
+  margin-right: 20px;
 }
 .body{
   margin-top: 20px;
@@ -34,4 +35,15 @@ a.active {
 }
 .img{
 padding-left: 10px;
+}
+.category{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.btn-right{
+  float: right;
+  margin-right: 45px;
 }

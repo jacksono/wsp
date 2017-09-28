@@ -8,7 +8,6 @@ class App extends React.Component {
           <span className="glyphicon "/>
               < Header />
             {this.props.children}
-            <span className="glyphicon glyphicon-user "/> hold
           </div>
         );
     }
