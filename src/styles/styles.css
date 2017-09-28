@@ -6,13 +6,32 @@
   margin: 0 auto
 }
 a.active {
-  color: orange;
-}
-nav{
-  padding-top: 20px;
+  color: white;
+  font: 20px 'Helvetica Neue'
 }
 
+
 .jumbo{
-  margin-top: 50px;
+  margin: 20px;
+  height: 80px;
+  width: 800px;
   background-color: #fbb040;
+  border-radius: 8px;
+}
+
+.header{
+  color: #FDFEFE;
+  padding: 30px;
+
+}
+
+.float-right{
+  float: right;
+}
+.body{
+  margin-top: 20px;
+  background-color: #726a95;
+}
+.img{
+padding-left: 10px;
 }

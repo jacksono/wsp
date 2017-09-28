@@ -5,26 +5,15 @@ import {Link, IndexLink} from 'react-router';
 export default class Header extends React.Component {
   render() {
     return (
-        <header>
-            <div className="logo">
-                <a href="#">
-                    <img src="img/doveicon.png"/>
+        <div className='jumbo'>
+                <a className="img" href="#">
+                <img src="https://www.dropbox.com/s/i2au6inqc4s9n0u/doveicon.png?dl=1" width="200" height="80"/>
                 </a>
-            </div>
-
-            <ul className="nav-header">
-                <Link to="" activeClassName="active">
-                          <span className="glyphicon glyphicon-user"/> GUEST
-                          <span className="caret"/>
-                </Link>
 
                 <Link to="" activeClassName="active">
-                    <li>
-                      LOGOUT
-                    </li>
+                  <p className="header float-right"> GUEST </p>
                 </Link>
-            </ul>
-        </header>
+        </div>
     );
   }
 }

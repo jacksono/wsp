@@ -4,9 +4,11 @@ import Header from './common/header'
 class App extends React.Component {
     render() {
         return (
-          <div className="jumbo">
+          <div className="body">
+          <span className="glyphicon "/>
               < Header />
             {this.props.children}
+            <span className="glyphicon glyphicon-user "/> hold
           </div>
         );
     }
