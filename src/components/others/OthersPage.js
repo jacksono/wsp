@@ -5,13 +5,62 @@ import { Table } from 'reactstrap';
 
 export default class HomePage extends React.Component {
   render() {
+    const otherslist = [
+      {
+        title: 'ALL MAJESTY AND PRAISE',
+        category: 'PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: 'PRAISE ALL THE EARTH',
+        category: 'PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: 'HOLY GOD ALMIGHTY',
+        category: 'PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: 'FIRE OF THE SPIRIT',
+        category: 'PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: 'MY SALVATION THE LORD',
+        category: 'PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      }
+    ]
     return (
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-              <a className="btn-img" href="#">
+            <Link to ="/home">
+              <a className="btn-img">
                 <img src="https://www.dropbox.com/s/c0xnyvntn4xlxvv/backbtn.png?dl=1" width="60" height="80"/>
               </a>
+            </Link>
               <header className="category-header">
                 <p className='title'>OTHERS </p>
               </header>
@@ -30,51 +79,20 @@ export default class HomePage extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>TITLE</td>
-                    <td>CATEGORY</td>
-                    <td>ARTIST</td>
-                    <td>TEMPO</td>
-                    <td>DATE</td>
-                    <td>MESSAGE</td>
-                    <td>LINKS</td>
-                  </tr>
-                  <tr>
-                    <td>TITLE</td>
-                    <td>CATEGORY</td>
-                    <td>ARTIST</td>
-                    <td>TEMPO</td>
-                    <td>DATE</td>
-                    <td>MESSAGE</td>
-                    <td>LINKS</td>
-                  </tr>
-                  <tr>
-                    <td>TITLE</td>
-                    <td>CATEGORY</td>
-                    <td>ARTIST</td>
-                    <td>TEMPO</td>
-                    <td>DATE</td>
-                    <td>MESSAGE</td>
-                    <td>LINKS</td>
-                  </tr>
-                  <tr>
-                    <td>TITLE</td>
-                    <td>CATEGORY</td>
-                    <td>ARTIST</td>
-                    <td>TEMPO</td>
-                    <td>DATE</td>
-                    <td>MESSAGE</td>
-                    <td>LINKS</td>
-                  </tr>
-                  <tr>
-                    <td>TITLE</td>
-                    <td>CATEGORY</td>
-                    <td>ARTIST</td>
-                    <td>TEMPO</td>
-                    <td>DATE</td>
-                    <td>MESSAGE</td>
-                    <td>LINKS</td>
-                  </tr>
+                  {otherslist.map((song) => {
+                    return (
+                      <tr key={song.title}>
+                        <td>{song.title}</td>
+                        <td>{song.category}</td>
+                        <td>{song.artist}</td>
+                        <td>{song.tempo}</td>
+                        <td>{song.date}</td>
+                        <td>{song.message}</td>
+                        <td>{song.links}</td>
+                      </tr>
+                    )
+                  }
+                  )}
                   </tbody>
             </Table>
             </div>

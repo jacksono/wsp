@@ -9,45 +9,51 @@ export default class HomePage extends React.Component {
         <form className='form-horizontal'>
             <div className='form-group'>
               <div className='btn-right'>
-                  <input className='btn btn-success form-control'
+                  <input className='btn-search btn-success form-control'
                          name='search'
                          type='button'
-                         value='S E A R C H'
+                         value='SEARCH'
                          onClick=''
                   />
               </div>
             </div>
 
             <div className='form-group'>
-              <div className=' category col-sm-3'>
-                  <input className='btn form-control'
+              <div className=' category col-sm-4'>
+              <Link to ="/praise">
+                  <input className='btn-home form-control'
                          name='praise'
                          type='button'
-                         value='P R A I S E'
+                         value='PRAISE'
                          onClick=''
                   />
+                  </Link>
               </div>
             </div>
 
             <div className='form-group'>
-              <div className=' category col-sm-3'>
-                  <input className='btn form-control'
+              <div className=' category col-sm-4'>
+              <Link to ="/worship">
+                  <input className='btn-home form-control'
                          name='worship'
                          type='button'
-                         value='W O R S H I P'
+                         value='WORSHIP'
                          onClick=''
                   />
+                  </Link>
               </div>
             </div>
 
             <div className='form-group'>
-              <div className=' category col-sm-3'>
-                  <input className='btn form-control'
+              <div className=' category col-sm-4'>
+              <Link to ="/others">
+                  <input className='btn-home form-control'
                          name='other'
                          type='button'
-                         value='O T H E R'
+                         value='OTHER'
                          onClick=''
                   />
+                  </Link>
               </div>
             </div>
             </form>

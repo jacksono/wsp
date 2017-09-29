@@ -49,10 +49,29 @@ float: left;
   transform: translateX(-50%);
   margin-top:20px;
   margin-bottom:20px;
+  font-size: 20px;
 }
 .btn-right{
   float: right;
   margin-right: 45px;
+}
+input.btn-home{
+  font-size: 30px;
+  font-weight: bold;
+  height: 50px;
+  color: black;}
+.category a:hover{
+  text-decoration: none;
+}
+input.btn-search{
+  font-size: 20px;
+  font-weight: bold;
+  height: 40px;
+  color: white;
+}
+
+input.btn-home:hover{
+  color: #d9d9d9;
 }
 .category-header {
     text-align: center;
