@@ -4,7 +4,7 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
 
-export default class HomePage extends React.Component {
+export default class WorshipPage extends React.Component {
   render() {
     const worshiplist = [
       {

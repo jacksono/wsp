@@ -3,9 +3,9 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
 
-export default class OthersPage extends React.Component {
+export default class Search extends React.Component {
   render() {
-    const otherslist = [
+    const songslist = [
       {
         title: 'ALL MAJESTY AND PRAISE',
         category: 'PRAISE',
@@ -55,15 +55,24 @@ export default class OthersPage extends React.Component {
     return (
         <div>
         <form className='form-horizontal'>
-            <div className='form-group'>
-            <Link to ="/home">
-              <a className="btn-img">
-                <img src="https://www.dropbox.com/s/c0xnyvntn4xlxvv/backbtn.png?dl=1" width="60" height="80"/>
-              </a>
-            </Link>
-              <header className="category-header">
-                <p className='title'>OTHERS </p>
-              </header>
+            <div className='form-group '>
+            <div className='col-sm-5 admin-header'>
+                <input  className='form-control admin-control'
+                        name='search'
+                        placeholder= 'S E A R C H'
+                        type='text'
+                />
+            </div>
+            <div className=' category col-sm-4'>
+            <Link to ="/admin/add">
+                <input className='btn-success form-control admin-btn-control'
+                       name='praise'
+                       type='button'
+                       value='ADD NEW SONG'
+                       onClick=''
+                />
+                </Link>
+            </div>
             </div>
             <div className='table-div' >
             <Table striped className='table-rows'>
@@ -79,11 +88,12 @@ export default class OthersPage extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                  {otherslist.map((song) => {
+                  {songslist.map((song) => {
                     return (
                       <tr key={song.title}>
-                        <td>{song.title}</td>
-                        <td>{song.category}</td>
+                      <td>{song.title}</td>
+                      <td>{song.category}</td>
+
                         <td>{song.artist}</td>
                         <td>{song.tempo}</td>
                         <td>{song.date}</td>

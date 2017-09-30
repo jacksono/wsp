@@ -3,7 +3,7 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
 
-export default class HomePage extends React.Component {
+export default class PraisePage extends React.Component {
   render() {
     const praiselist = [
       {
