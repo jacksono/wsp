@@ -64,7 +64,7 @@ export default class Search extends React.Component {
                 />
             </div>
             <div className=' category col-sm-4'>
-            <Link to ="/admin/add">
+            <Link to ="/admin/new">
                 <input className='btn-success form-control admin-btn-control'
                        name='praise'
                        type='button'

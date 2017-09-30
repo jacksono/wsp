@@ -12,8 +12,11 @@ export default class Header extends React.Component {
                 </a>
           </Link>
 
-                <Link to="" activeClassName="active">
+                <Link to="/home" activeClassName="active">
                   <p className="header float-right"> GUEST </p>
+                </Link>
+                <Link to="/admin" activeClassName="active">
+                  <p className="header float-right"> ADMIN </p>
                 </Link>
         </div>
     );
