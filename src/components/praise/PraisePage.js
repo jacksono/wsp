@@ -15,7 +15,7 @@ export default class PraisePage extends React.Component {
         links:'NONE'
       },
       {
-        title: 'PRAISE ALL THE EARTH',
+        title: '0PRAISE ALL THE EARTH',
         artist: 'S2G PROJECT',
         tempo: 'SLOW',
         date: 'DATE',
@@ -23,7 +23,7 @@ export default class PraisePage extends React.Component {
         links:'NONE'
       },
       {
-        title: 'HOLY GOD ALMIGHTY',
+        title: '0HOLY GOD ALMIGHTY',
         artist: 'S2G PROJECT',
         tempo: 'SLOW',
         date: 'DATE',
@@ -31,7 +31,7 @@ export default class PraisePage extends React.Component {
         links:'NONE'
       },
       {
-        title: 'FIRE OF THE SPIRIT',
+        title: '0FIRE OF THE SPIRIT',
         artist: 'S2G PROJECT',
         tempo: 'SLOW',
         date: 'DATE',
@@ -39,7 +39,126 @@ export default class PraisePage extends React.Component {
         links:'NONE'
       },
       {
-        title: 'MY SALVATION THE LORD',
+        title: '0MY SALVATION THE LORD',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '7ALL MAJESTY AND PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '7PRAISE ALL THE EARTH',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '7HOLY GOD ALMIGHTY',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '7FIRE OF THE SPIRIT',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '7MY SALVATION THE LORD',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '2ALL MAJESTY AND PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '2PRAISE ALL THE EARTH',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '2HOLY GOD ALMIGHTY',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '2FIRE OF THE SPIRIT',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '2MY SALVATION THE LORD',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },{
+        title: '3ALL MAJESTY AND PRAISE',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '3PRAISE ALL THE EARTH',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '3HOLY GOD ALMIGHTY',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '3FIRE OF THE SPIRIT',
+        artist: 'S2G PROJECT',
+        tempo: 'SLOW',
+        date: 'DATE',
+        message: 'ALL MAJESTY AND PRAISE',
+        links:'NONE'
+      },
+      {
+        title: '3MY SALVATION THE LORD',
         artist: 'S2G PROJECT',
         tempo: 'SLOW',
         date: 'DATE',
