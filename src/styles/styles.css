@@ -151,3 +151,12 @@ input.btn-home:hover{
 .form-control.admin-input{
   border-radius: 10px;
 }
+.form-control.cat-search{
+    text-align: center;
+    width: 50%;
+    height: 30px;
+    font-size: 18px;
+    color: #555;
+    border-radius: 10px;
+    margin-left: 600px;
+}

@@ -4,7 +4,27 @@ import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
 
 export default class PraisePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchValue: '',
+
+    };
+
+    this.search = this.search.bind(this);
+  }
+
+  search(event) {
+    const { name, value } = event.target;
+    event.preventDefault();
+    this.setState({
+      [name]: value,
+    })
+  }
+
+
   render() {
+    console.log("begin", this.state)
     const praiselist = [
       {
         title: 'ALL MAJESTY AND PRAISE',
@@ -178,7 +198,19 @@ export default class PraisePage extends React.Component {
               <header className="category-header">
                 <p className='title'>PRAISE </p>
               </header>
+
+              <div className='col-sm-5 admin-header'>
+                  <input  className='form-control cat-search'
+                          name='searchValue'
+                          placeholder= 'S E A R C H'
+                          type='text'
+                          value = {this.state.searchValue}
+                          onChange = {this.search}
+                  />
+              </div>
             </div>
+
+
             <div className='table-div' >
             <Table striped className='table-rows'>
                   <thead>
