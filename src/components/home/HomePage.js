@@ -19,7 +19,7 @@ export default class HomePage extends React.Component {
             </div>
 
             <div className='form-group'>
-              <div className=' category col-sm-4'>
+              <div className=' category col-sm-5'>
               <Link to ="/praise">
                   <input className='btn-home form-control'
                          name='praise'
@@ -32,7 +32,7 @@ export default class HomePage extends React.Component {
             </div>
 
             <div className='form-group'>
-              <div className=' category col-sm-4'>
+              <div className=' category col-sm-5'>
               <Link to ="/worship">
                   <input className='btn-home form-control'
                          name='worship'
@@ -45,12 +45,25 @@ export default class HomePage extends React.Component {
             </div>
 
             <div className='form-group'>
-              <div className=' category col-sm-4'>
+              <div className=' category col-sm-5'>
+              <Link to ="/s2g">
+                  <input className='btn-home form-control'
+                         name='s2g'
+                         type='button'
+                         value='SONGS TO GLORY'
+                         onClick=''
+                  />
+                  </Link>
+              </div>
+            </div>
+
+            <div className='form-group'>
+              <div className=' category col-sm-5'>
               <Link to ="/others">
                   <input className='btn-home form-control'
                          name='other'
                          type='button'
-                         value='OTHER'
+                         value='OTHERS'
                          onClick=''
                   />
                   </Link>

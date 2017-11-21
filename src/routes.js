@@ -5,6 +5,7 @@ import HomePage from './components/home/HomePage'
 import PraisePage from './components/praise/PraisePage'
 import WorshipPage from './components/worship/WorshipPage'
 import OthersPage from './components/others/OthersPage'
+import S2gPage from './components/s2g/S2gPage'
 import Search from './components/admin/search/Search'
 import AddPage from './components/admin/addnew/AddPage'
 
@@ -16,6 +17,7 @@ export default (
       <Route path="/praise" component={PraisePage} />
       <Route path="/worship" component={WorshipPage} />
       <Route path="/others" component={OthersPage} />
+      <Route path="/s2g" component={S2gPage} />
       <Route path="/admin" component={Search} />
       <Route path="/admin/new" component={AddPage} />
       <Route path="*" component={HomePage} />
