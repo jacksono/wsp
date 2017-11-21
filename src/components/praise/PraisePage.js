@@ -225,16 +225,32 @@ export default class PraisePage extends React.Component {
                   </thead>
                   <tbody>
                   {praiselist.map((song) => {
-                    return (
-                      <tr key={song.title}>
-                        <td>{song.title}</td>
-                        <td>{song.artist}</td>
-                        <td>{song.tempo}</td>
-                        <td>{song.date}</td>
-                        <td>{song.message}</td>
-                        <td>{song.links}</td>
-                      </tr>
-                    )
+                    if (!this.state.searchValue){
+                      return (
+                        <tr key={song.title}>
+                          <td>{song.title}</td>
+                          <td>{song.artist}</td>
+                          <td>{song.tempo}</td>
+                          <td>{song.date}</td>
+                          <td>{song.message}</td>
+                          <td>{song.links}</td>
+                        </tr>
+                      )
+                  } else {
+                    if(song.title.includes(this.state.searchValue) || song.artist.includes(this.state.searchValue) || song.message.includes(this.state.searchValue) || song.tempo.includes(this.state.searchValue)){
+                      return (
+                        <tr key={song.title}>
+                          <td>{song.title}</td>
+                          <td>{song.artist}</td>
+                          <td>{song.tempo}</td>
+                          <td>{song.date}</td>
+                          <td>{song.message}</td>
+                          <td>{song.links}</td>
+                        </tr>
+                      )
+                    }
+
+                  }
                   }
                   )}
                   </tbody>
