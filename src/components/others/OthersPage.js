@@ -58,7 +58,7 @@ export default class OthersPage extends React.Component {
             <div className='form-group'>
             <Link to ="/home">
               <a className="btn-img">
-                <img src="https://www.dropbox.com/s/c0xnyvntn4xlxvv/backbtn.png?dl=1" width="60" height="80"/>
+                <img src={require('../common/backbtn.png') } width="60" height="70"/>
               </a>
             </Link>
               <header className="category-header">
