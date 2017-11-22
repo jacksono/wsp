@@ -120,7 +120,7 @@ export default class OthersPage extends React.Component {
                         </tr>
                       )
                   } else {
-                    if(song.title.includes(this.state.searchValue) || song.artist.includes(this.state.searchValue) || song.message.includes(this.state.searchValue) || song.tempo.includes(this.state.searchValue)){
+                    if(song.title.includes(this.state.searchValue.toUpperCase()) || song.artist.includes(this.state.searchValue.toUpperCase()) || song.message.includes(this.state.searchValue.toUpperCase()) || song.tempo.includes(this.state.searchValue.toUpperCase())){
                       return (
                         <tr key={song.title}>
                           <td>{song.title}</td>
