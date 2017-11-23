@@ -62,7 +62,7 @@ export default class PraisePage extends React.Component {
                     <tr>
                       <th># </th>
                       <th>TITLE </th>
-                      <th>ARTIST </th>
+                      <th>ORIGIN </th>
                       <th>TEMPO</th>
                       <th>MESSAGE</th>
                       <th>LINKS</th>
