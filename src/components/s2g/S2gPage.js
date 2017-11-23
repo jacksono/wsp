@@ -1,7 +1,8 @@
-
+'use strict';
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
+import _ from 'lodash';
 
 export default class S2gPage extends React.Component {
   constructor(props) {
