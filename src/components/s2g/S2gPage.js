@@ -2,17 +2,25 @@
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
-import _ from 'lodash';
+import apiCall from '../apiHelper';
 
 export default class S2gPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchValue: '',
+      songs: []
 
     };
 
     this.search = this.search.bind(this);
+  }
+
+  componentDidMount(){
+    apiCall(null, 'get', 'stg/')
+    .then((response) => {
+      this.setState({songs: response})
+      }).catch(error => (error));
   }
 
   search(event) {
@@ -188,10 +196,8 @@ export default class S2gPage extends React.Component {
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home">
-              <a className="btn-img" >
+            <Link to ="/home" className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
-              </a>
               </Link>
               <header className="category-header">
                 <p className='title'>SONGS TO GLORY</p>
@@ -212,37 +218,37 @@ export default class S2gPage extends React.Component {
             <Table striped className='table-rows'>
                   <thead>
                     <tr>
+                      <th> # </th>
                       <th>TITLE </th>
-                      <th>ARTIST </th>
                       <th>TEMPO</th>
-                      <th>DATE</th>
-                      <th>MESSAGE</th>
+                      <th>CATEGORY</th>
+                      <th>ALBUM</th>
                       <th>LINKS</th>
                     </tr>
                   </thead>
                   <tbody>
-                  {s2glist.map((song) => {
+                  {this.state.songs.map((song) => {
                     if (!this.state.searchValue){
                       return (
                         <tr key={song.title}>
+                          <td>{song.id}</td>
                           <td>{song.title}</td>
-                          <td>{song.artist}</td>
                           <td>{song.tempo}</td>
-                          <td>{song.date}</td>
-                          <td>{song.message}</td>
-                          <td>{song.links}</td>
+                          <td>{song.category}</td>
+                          <td>{song.album}</td>
+                          <td>None</td>
                         </tr>
                       )
                   } else {
-                    if(song.title.includes(this.state.searchValue.toUpperCase()) || song.artist.includes(this.state.searchValue.toUpperCase()) || song.message.includes(this.state.searchValue.toUpperCase()) || song.tempo.includes(this.state.searchValue.toUpperCase())){
+                    if(song.title.includes(this.state.searchValue.toUpperCase()) || song.origin.includes(this.state.searchValue.toUpperCase()) || song.album.includes(this.state.searchValue.toUpperCase()) || song.tempo.includes(this.state.searchValue.toUpperCase())){
                       return (
                         <tr key={song.title}>
+                          <td>{song.id}</td>
                           <td>{song.title}</td>
-                          <td>{song.artist}</td>
                           <td>{song.tempo}</td>
-                          <td>{song.date}</td>
-                          <td>{song.message}</td>
-                          <td>{song.links}</td>
+                          <td>{song.category}</td>
+                          <td>{song.album}</td>
+                          <td>None</td>
                         </tr>
                       )
                     }

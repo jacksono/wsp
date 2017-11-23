@@ -190,10 +190,8 @@ export default class PraisePage extends React.Component {
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home">
-              <a className="btn-img" >
+            <Link to ="/home" className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
-              </a>
               </Link>
               <header className="category-header">
                 <p className='title'>PRAISE </p>

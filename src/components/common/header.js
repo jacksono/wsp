@@ -6,10 +6,8 @@ export default class Header extends React.Component {
   render() {
     return (
         <div className='jumbo'>
-          <Link to ="/home">
-                <a className="img" >
+          <Link to ="/home" className="img">
                 <img src={require('./doveicon.png') } alt='HOME' width="200" height="80"/>
-                </a>
           </Link>
 
                 <Link to="/home" activeClassName="active">
