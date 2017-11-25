@@ -104,6 +104,9 @@ input.btn-home:hover{
   font-size: 20px;
   font-weight: bold;
 }
+a{
+  color: #5271ff!important;
+}
 .table td{
   color: #5271ff;
 }

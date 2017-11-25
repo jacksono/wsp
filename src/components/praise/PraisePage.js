@@ -74,7 +74,7 @@ export default class PraisePage extends React.Component {
                       return (
                         <tr key={song.title}>
                           <td>{song.id}</td>
-                          <td>{song.title}</td>
+                          <td><Link to={"/details/"+song.title}>{song.title}</Link></td>
                           <td>{song.origin}</td>
                           <td>{song.tempo}</td>
                           <td>{song.message}</td>
@@ -86,7 +86,7 @@ export default class PraisePage extends React.Component {
                       return (
                         <tr key={song.title}>
                           <td>{song.id}</td>
-                          <td>{song.title}</td>
+                          <td><Link to={"/details/"+song.title}>{song.title}</Link></td>
                           <td>{song.origin}</td>
                           <td>{song.tempo}</td>
                           <td>{song.message}</td>
