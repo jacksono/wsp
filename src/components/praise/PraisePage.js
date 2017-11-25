@@ -76,9 +76,9 @@ export default class PraisePage extends React.Component {
                           <td>{song.id}</td>
                           <td><Link to={"/details/"+song.title}>{song.title}</Link></td>
                           <td>{song.origin}</td>
-                          <td>{song.tempo}</td>
+                          <td className="center">{song.tempo}</td>
                           <td>{song.message}</td>
-                          <td>{"None"}</td>
+                          <td className="center">{"None"}</td>
                         </tr>
                       )
                   } else {
@@ -88,9 +88,9 @@ export default class PraisePage extends React.Component {
                           <td>{song.id}</td>
                           <td><Link to={"/details/"+song.title}>{song.title}</Link></td>
                           <td>{song.origin}</td>
-                          <td>{song.tempo}</td>
+                          <td className="center">{song.tempo}</td>
                           <td>{song.message}</td>
-                          <td>{"None"}</td>
+                          <td className="center">{"None"}</td>
                         </tr>
                       )
                     }

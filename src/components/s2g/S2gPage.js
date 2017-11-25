@@ -72,10 +72,10 @@ export default class S2gPage extends React.Component {
                         <tr key={song.title}>
                           <td>{song.id}</td>
                           <td>{song.title}</td>
-                          <td>{song.tempo}</td>
-                          <td>{song.category}</td>
+                          <td className="center">{song.tempo}</td>
+                          <td className="center">{"STG"}</td>
                           <td>{song.album}</td>
-                          <td><Link to={"/lyrics/"+song.title}>{"Lyrics"}</Link></td>
+                          <td className="center"><Link to={"/lyrics/"+song.title}>{"Lyrics"}</Link></td>
                         </tr>
                       )
                   } else {
@@ -84,10 +84,10 @@ export default class S2gPage extends React.Component {
                         <tr key={song.title}>
                           <td>{song.id}</td>
                           <td>{song.title}</td>
-                          <td>{song.tempo}</td>
-                          <td>{song.category}</td>
+                          <td className="center">{song.tempo}</td>
+                          <td className="center">{"STG"}</td>
                           <td>{song.album}</td>
-                          <td><Link to={"/lyrics/"+song.title}>{"Lyrics"}</Link></td>
+                          <td className="center"><Link to={"/lyrics/"+song.title}>{"Lyrics"}</Link></td>
                         </tr>
                       )
                     }

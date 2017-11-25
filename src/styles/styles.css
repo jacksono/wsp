@@ -168,3 +168,6 @@ a{
   left: 50%;
   transform: translateX(-50%);
 }
+.center{
+  text-align: center;
+}

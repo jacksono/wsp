@@ -75,9 +75,9 @@ export default class WorshipPage extends React.Component {
                         <td>{song.id}</td>
                           <td>{song.title}</td>
                           <td>{song.origin}</td>
-                          <td>{song.tempo}</td>
+                          <td className="center">{song.tempo}</td>
                           <td>{song.message}</td>
-                          <td>{"None"}</td>
+                          <td className="center">{"None"}</td>
                         </tr>
                       )
                   } else {
@@ -87,9 +87,9 @@ export default class WorshipPage extends React.Component {
                           <td>{song.id}</td>
                           <td>{song.title}</td>
                           <td>{song.origin}</td>
-                          <td>{song.tempo}</td>
+                          <td className="center">{song.tempo}</td>
                           <td>{song.message}</td>
-                          <td>{"None"}</td>
+                          <td className="center">{"None"}</td>
                         </tr>
                       )
                     }

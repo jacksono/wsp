@@ -37,7 +37,7 @@ export default class LyricsPage extends React.Component {
             <div className="lyrics">
             <p><strong><u> LYRICS FOR {this.props.params.song}</u></strong></p>
             {this.state.lyrics.split("%%").map((line) =>
-            <p>{line === "$$" ? <br/>: (line.includes("Chorus") || line.includes("Bridge") || line.includes("Verse")) ? <strong>{line}</strong> : line}</p>
+            <p>{line === "$$" ? <br/>: (line.includes("Chorus") || line.includes("Bridge") || line.includes("Verse") || line.includes("Climax")) ? <strong>{line}</strong> : line}</p>
 
           )}
           </div>
