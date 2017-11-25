@@ -162,3 +162,9 @@ a{
     border-radius: 10px;
     margin-left: 600px;
 }
+.lyrics{
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

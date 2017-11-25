@@ -71,7 +71,6 @@ export default class DetailsPage extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
         <div>
         <form className='form-horizontal'>
@@ -178,6 +177,7 @@ export default class DetailsPage extends React.Component {
                 </div>
               </div>
             <div className='form-group'>
+            {!this.state.editable &&
               <div className='col-sm-3'>
                   <button
                        name='update'
@@ -186,6 +186,7 @@ export default class DetailsPage extends React.Component {
                        Edit
                   </button>
               </div>
+            }
               {this.state.editable &&
               <div className='col-sm-3'>
                   <button type='button'
