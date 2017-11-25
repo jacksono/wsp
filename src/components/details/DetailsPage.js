@@ -8,10 +8,19 @@ export default class DetailsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: '',
+      category: '',
+      origin: '',
+      tempo: '',
+      message: '',
+      language: '',
+      editable: false,
       song: {}
 
     };
-
+  this.handleChange = this.handleChange.bind(this);
+  this.handleEdit = this.handleEdit.bind(this);
+  this.handleSave = this.handleSave.bind(this);
   }
 
   componentWillMount(){
@@ -19,10 +28,46 @@ export default class DetailsPage extends React.Component {
     .then((response) => {
       response.map((s) => {
         if(s.title === this.props.params.song){
-          this.setState({song: s})
+          this.setState({song: s,
+                        title: s.title,
+                        category: s.category,
+                        origin: s.origin,
+                        message: s.message,
+                        language: s.language,
+                        tempo: s.tempo
+                        })
         }
       })
       }).catch(error => (error));
+  }
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    event.preventDefault();
+    this.setState({
+      [name]: value,
+    })
+  }
+
+  handleEdit(e){
+    e.preventDefault()
+    this.setState({editable: true})
+  }
+  handleSave(e){
+    e.preventDefault()
+    let editValues = {
+      title: this.state.title,
+      origin: this.state.origin,
+      language: this.state.language,
+      tempo: this.state.tempo,
+      message: this.state.message,
+      category: this.state.category
+    }
+    apiCall(editValues, 'put', this.props.params.song)
+    .then((response) => {
+        console.log("result", response.msg)
+      }).catch(error => (error));
+    this.setState({editable: false})
   }
 
   render() {
@@ -46,8 +91,9 @@ export default class DetailsPage extends React.Component {
                     <input  className='form-control admin-input'
                             name='title'
                             type='text'
-                            value={this.state.song.title}
-                            disabled
+                            value={this.state.title}
+                            onChange={this.handleChange}
+                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
@@ -58,8 +104,9 @@ export default class DetailsPage extends React.Component {
                     <input  className='form-control admin-input'
                             name='category'
                             type='text'
-                            value={this.state.song.category}
-                            disabled
+                            value={this.state.category}
+                            onChange={this.handleChange}
+                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
@@ -68,10 +115,11 @@ export default class DetailsPage extends React.Component {
                 <label className='control-label col-sm-2 admin-label'> ORIGIN: </label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
-                            name='artist'
+                            name='origin'
                             type='text'
-                            value={this.state.song.origin}
-                            disabled
+                            value={this.state.origin}
+                            onChange={this.handleChange}
+                            disabled={!this.state.editable}
                     />
                 </div>
 
@@ -90,8 +138,9 @@ export default class DetailsPage extends React.Component {
                     <input  className='form-control admin-input'
                             name='tempo'
                             type='text'
-                            value={this.state.song.tempo}
-                            disabled
+                            value={this.state.tempo}
+                            onChange={this.handleChange}
+                            disabled={!this.state.editable}
                     />
                 </div>
 
@@ -110,8 +159,9 @@ export default class DetailsPage extends React.Component {
                     <input  className='form-control admin-input'
                             name='message'
                             type='text'
-                            value={this.state.song.message}
-                            disabled
+                            value={this.state.message}
+                            onChange={this.handleChange}
+                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
@@ -119,28 +169,33 @@ export default class DetailsPage extends React.Component {
                 <label className='control-label col-sm-2 admin-label'> LANGUAGE: </label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
-                            name='message'
+                            name='language'
                             type='text'
-                            value={this.state.song.language}
-                            disabled
+                            value={this.state.language}
+                            onChange={this.handleChange}
+                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
             <div className='form-group'>
               <div className='col-sm-3'>
-                  <button type='submit'
+                  <button
                        name='update'
+                       onClick={this.handleEdit}
                        className='btn btn-success form-control'>
                        Edit
                   </button>
               </div>
+              {this.state.editable &&
               <div className='col-sm-3'>
                   <button type='button'
-                       name='cancel'
+                       name='save'
+                       onClick={this.handleSave}
                        className='btn btn-default form-control cancelBtn'>
-                       Delete
+                       Save
                   </button>
               </div>
+            }
           </div>
             </div>
 
