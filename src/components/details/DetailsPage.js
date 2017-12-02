@@ -56,12 +56,12 @@ export default class DetailsPage extends React.Component {
   handleSave(e){
     e.preventDefault()
     let editValues = {
-      title: this.state.title,
-      origin: this.state.origin,
-      language: this.state.language,
-      tempo: this.state.tempo,
-      message: this.state.message,
-      category: this.state.category
+      title: this.state.title.toUpperCase(),
+      origin: this.state.origin.toUpperCase(),
+      language: this.state.language.toUpperCase(),
+      tempo: this.state.tempo.toUpperCase(),
+      message: this.state.message.toUpperCase(),
+      category: this.state.category.toUpperCase()
     }
     apiCall(editValues, 'put', this.props.params.song)
     .then((response) => {

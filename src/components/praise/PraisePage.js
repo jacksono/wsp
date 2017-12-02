@@ -43,8 +43,16 @@ export default class PraisePage extends React.Component {
               <header className="category-header">
                 <p className='title'>PRAISE </p>
               </header>
-
+              <div className='form-group'>
+              <div className='admin-header col-sm-2'>
+                  <button type=''
+                       name='update'
+                       className='btn btn-success form-control add'>
+                       ADD NEW SONG
+                  </button>
+              </div>
               <div className='col-sm-5 admin-header'>
+
                   <input  className='form-control cat-search'
                           name='searchValue'
                           placeholder= 'S E A R C H'
@@ -52,6 +60,7 @@ export default class PraisePage extends React.Component {
                           value = {this.state.searchValue}
                           onChange = {this.search}
                   />
+              </div>
               </div>
             </div>
 

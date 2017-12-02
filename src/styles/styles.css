@@ -94,7 +94,10 @@ input.btn-home:hover{
   padding-left: 55px;
 }
 .table-div{
-  margin: 20px;
+  margin-top: -20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
   padding: 20px 20px 15px;
   text-align: left;
   border-radius: 10px;
@@ -123,7 +126,7 @@ a{
 }
 .admin-header {
     margin-top: 10px;
-    margin-left: 35px;
+    margin-left: 0px;
     font-weight: bold;
 }
 .form-control.admin-control{
@@ -160,7 +163,7 @@ a{
     font-size: 18px;
     color: #555;
     border-radius: 10px;
-    margin-left: 600px;
+    margin-left: 458px;
 }
 .lyrics{
   text-align: center;
@@ -170,4 +173,7 @@ a{
 }
 .center{
   text-align: center;
+}
+.add{
+  margin-left: -120px;
 }
