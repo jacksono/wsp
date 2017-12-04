@@ -2,29 +2,19 @@
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
 
-export default class HomePage extends React.Component {
+export default class Dashboard extends React.Component {
   render() {
     return (
         <div>
         <form className='form-horizontal'>
-            <div className='form-group'>
-              <div className='btn-right'>
-                  <input className='btn-search btn-success form-control'
-                         name='search'
-                         type='button'
-                         value='SEARCH'
-                         onClick=''
-                  />
-              </div>
-            </div>
 
             <div className='form-group'>
               <div className=' category col-sm-5'>
-              <Link to ="/praise">
+              <Link to ="/">
                   <input className='btn-home form-control'
                          name='praise'
                          type='button'
-                         value='PRAISE'
+                         value='SEARCH FOR ANY SONG'
                          onClick=''
                   />
                   </Link>
@@ -33,24 +23,11 @@ export default class HomePage extends React.Component {
 
             <div className='form-group'>
               <div className=' category col-sm-5'>
-              <Link to ="/worship">
+              <Link to ="/categories">
                   <input className='btn-home form-control'
-                         name='worship'
+                         name='praise'
                          type='button'
-                         value='WORSHIP'
-                         onClick=''
-                  />
-                  </Link>
-              </div>
-            </div>
-
-            <div className='form-group'>
-              <div className=' category col-sm-5'>
-              <Link to ="/s2g">
-                  <input className='btn-home form-control'
-                         name='s2g'
-                         type='button'
-                         value='SONGS TO GLORY'
+                         value='SONG CATEGORIES'
                          onClick=''
                   />
                   </Link>
@@ -63,7 +40,7 @@ export default class HomePage extends React.Component {
                   <input className='btn-home form-control'
                          name='other'
                          type='button'
-                         value='OTHERS'
+                         value='A.O.B'
                          onClick=''
                   />
                   </Link>

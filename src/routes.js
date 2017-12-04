@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './components/App'
-import HomePage from './components/home/HomePage'
+import CategoriesPage from './components/categories/CategoriesPage'
 import PraisePage from './components/praise/PraisePage'
 import WorshipPage from './components/worship/WorshipPage'
 import OthersPage from './components/others/OthersPage'
@@ -10,12 +10,13 @@ import Search from './components/admin/search/Search'
 import AddPage from './components/new/AddPage'
 import DetailsPage from './components/details/DetailsPage'
 import LyricsPage from './components/lyrics/LyricsPage'
+import Dashboard from './components/home/Dashboard'
 
 
 export default (
     <Route path="/" component={App}>
-      <IndexRoute component={HomePage} />
-      <Route path="/home" component={HomePage} />
+      <IndexRoute component={Dashboard} />
+      <Route path="/home" component={Dashboard} />
       <Route path="/praise" component={PraisePage} />
       <Route path="/worship" component={WorshipPage} />
       <Route path="/others" component={OthersPage} />
@@ -24,6 +25,7 @@ export default (
       <Route path="/lyrics/:song" component={LyricsPage} />
       <Route path="/admin" component={Search} />
       <Route path="/add" component={AddPage} />
-      <Route path="*" component={HomePage} />
+      <Route path="/categories" component={CategoriesPage} />
+      <Route path="*" component={Dashboard} />
     </Route>
   );
