@@ -9,8 +9,8 @@ export default class Header extends React.Component {
           <Link to ="/home" className="img">
                 <img src={require('./doveicon.png') } alt='HOME' width="200" height="80"/>
           </Link>
-          <Link to ="/home" className="float-right">
-                <img src={require('./sw2.png') } alt='HOME' width="120" height="80"/>
+          <Link to ="/home" className="img-sw">
+                <img src={require('./sw4.png') } alt='HOME' width="250" height="70"/>
           </Link>
         </div>
     );

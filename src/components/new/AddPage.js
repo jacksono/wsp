@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
-import apiCall from '.../apiHelper';
+import apiCall from '../apiHelper';
 
 export default class DetailsPage extends React.Component {
   constructor(props) {
@@ -14,7 +14,6 @@ export default class DetailsPage extends React.Component {
       tempo: '',
       message: '',
       language: '',
-      editable: false,
       song: {}
 
     };
@@ -23,23 +22,6 @@ export default class DetailsPage extends React.Component {
   this.handleSave = this.handleSave.bind(this);
   }
 
-  componentWillMount(){
-    apiCall(null, 'get', 'songs/')
-    .then((response) => {
-      response.map((s) => {
-        if(s.title === this.props.params.song){
-          this.setState({song: s,
-                        title: s.title,
-                        category: s.category,
-                        origin: s.origin,
-                        message: s.message,
-                        language: s.language,
-                        tempo: s.tempo
-                        })
-        }
-      })
-      }).catch(error => (error));
-  }
 
   handleChange(event) {
     const { name, value } = event.target;
@@ -51,7 +33,6 @@ export default class DetailsPage extends React.Component {
 
   handleEdit(e){
     e.preventDefault()
-    this.setState({editable: true})
   }
   handleSave(e){
     e.preventDefault()
@@ -63,11 +44,10 @@ export default class DetailsPage extends React.Component {
       message: this.state.message.toUpperCase(),
       category: this.state.category.toUpperCase()
     }
-    apiCall(editValues, 'put', this.props.params.song)
+    apiCall(editValues, 'post', 'add/')
     .then((response) => {
         console.log("result", response.msg)
       }).catch(error => (error));
-    this.setState({editable: false})
   }
 
   render() {
@@ -79,7 +59,7 @@ export default class DetailsPage extends React.Component {
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
             </Link>
               <header className="category-header">
-                <p className='title'>SONG DETAILS </p>
+                <p className='title'>ADD SONG </p>
               </header>
             </div>
 
@@ -92,7 +72,6 @@ export default class DetailsPage extends React.Component {
                             type='text'
                             value={this.state.title}
                             onChange={this.handleChange}
-                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
@@ -105,7 +84,6 @@ export default class DetailsPage extends React.Component {
                             type='text'
                             value={this.state.category}
                             onChange={this.handleChange}
-                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
@@ -118,7 +96,6 @@ export default class DetailsPage extends React.Component {
                             type='text'
                             value={this.state.origin}
                             onChange={this.handleChange}
-                            disabled={!this.state.editable}
                     />
                 </div>
 
@@ -139,7 +116,6 @@ export default class DetailsPage extends React.Component {
                             type='text'
                             value={this.state.tempo}
                             onChange={this.handleChange}
-                            disabled={!this.state.editable}
                     />
                 </div>
 
@@ -160,7 +136,6 @@ export default class DetailsPage extends React.Component {
                             type='text'
                             value={this.state.message}
                             onChange={this.handleChange}
-                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
@@ -172,31 +147,27 @@ export default class DetailsPage extends React.Component {
                             type='text'
                             value={this.state.language}
                             onChange={this.handleChange}
-                            disabled={!this.state.editable}
                     />
                 </div>
               </div>
             <div className='form-group'>
-            {!this.state.editable &&
               <div className='col-sm-3'>
                   <button
                        name='update'
                        onClick={this.handleEdit}
                        className='btn btn-success form-control'>
-                       Edit
+                       Save
                   </button>
               </div>
-            }
-              {this.state.editable &&
               <div className='col-sm-3'>
                   <button type='button'
                        name='save'
                        onClick={this.handleSave}
                        className='btn btn-default form-control cancelBtn'>
-                       Save
+                       Clear
                   </button>
               </div>
-            }
+
           </div>
             </div>
 

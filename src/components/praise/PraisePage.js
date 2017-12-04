@@ -48,7 +48,7 @@ export default class PraisePage extends React.Component {
                   <button type=''
                        name='update'
                        className='btn btn-success form-control add'>
-                       ADD NEW SONG
+                       ADD PRAISE SONG
                   </button>
               </div>
               <div className='col-sm-5 admin-header'>

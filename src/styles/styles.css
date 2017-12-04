@@ -15,6 +15,7 @@ a.active {
   margin: 20px;
   height: 80px;
   width: 950px;
+  /*background: linear-gradient(to right, #FBB040 20%, #A31F24 80%);*/
   background-color: #fbb040;
   border-radius: 8px;
 }
@@ -33,6 +34,10 @@ a.active {
   margin-top: 20px;
   background-color: #575171;
   padding-bottom: 20px;
+}
+.img-sw{
+padding-right: 10px;
+float:right;
 }
 .img{
 padding-left: 10px;
@@ -94,7 +99,7 @@ input.btn-home:hover{
   padding-left: 55px;
 }
 .table-div{
-  margin-top: -20px;
+  margin-top: -10px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;

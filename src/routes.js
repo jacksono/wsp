@@ -7,7 +7,7 @@ import WorshipPage from './components/worship/WorshipPage'
 import OthersPage from './components/others/OthersPage'
 import S2gPage from './components/s2g/S2gPage'
 import Search from './components/admin/search/Search'
-import AddPage from './components/admin/addnew/AddPage'
+import AddPage from './components/new/AddPage'
 import DetailsPage from './components/details/DetailsPage'
 import LyricsPage from './components/lyrics/LyricsPage'
 
@@ -23,7 +23,7 @@ export default (
       <Route path="/details/:song" component={DetailsPage} />
       <Route path="/lyrics/:song" component={LyricsPage} />
       <Route path="/admin" component={Search} />
-      <Route path="/admin/new" component={AddPage} />
+      <Route path="/add" component={AddPage} />
       <Route path="*" component={HomePage} />
     </Route>
   );
