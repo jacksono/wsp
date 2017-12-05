@@ -23,6 +23,7 @@ class AddPage extends React.Component {
       tempo: '',
       message: '',
       language: '',
+      comment: '',
       song: {}
 
     };
@@ -181,6 +182,18 @@ class AddPage extends React.Component {
                         ))
                       }
                     </select>
+                </div>
+              </div>
+
+              <div className='form-group'>
+                <label className='control-label col-sm-2 admin-label'> COMMENT: </label>
+                <div className='col-sm-5'>
+                    <input  className='form-control admin-input'
+                            name='comment'
+                            type='text'
+                            value={this.state.comment}
+                            onChange={this.handleChange}
+                    />
                 </div>
               </div>
             <div className='form-group btn-pos'>

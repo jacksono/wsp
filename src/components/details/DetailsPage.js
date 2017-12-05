@@ -14,6 +14,7 @@ class DetailsPage extends React.Component {
       tempo: '',
       message: '',
       language: '',
+      comment: '',
       editable: false,
       song: {}
 
@@ -100,13 +101,20 @@ class DetailsPage extends React.Component {
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> CATEGORY: </label>
                 <div className='col-sm-5'>
-                    <input  className='form-control admin-input'
-                            name='category'
-                            type='text'
-                            value={this.state.category}
-                            onChange={this.handleChange}
-                            disabled={!this.state.editable}
-                    />
+                    <select
+                      className="form-control admin-input"
+                      name="category"
+                      value={this.state.category}
+                      onChange={this.handleChange}
+                      style={{ width: '365px' }}
+                      disabled={!this.state.editable}
+                    >
+                      {
+                        ["...", "PRAISE", "WORSHIP", "STG", "OTHER"].map(option => (
+                          <option key={option} value={option}>{option}</option>
+                        ))
+                      }
+                    </select>
                 </div>
               </div>
 
@@ -122,7 +130,7 @@ class DetailsPage extends React.Component {
                     />
                 </div>
 
-                <div className='col-sm-3'>
+                <div className='col-sm-3 btn-link'>
                     <button type='submit'
                          name='update'
                          className='btn btn-success form-control'>
@@ -134,16 +142,23 @@ class DetailsPage extends React.Component {
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> TEMPO: </label>
                 <div className='col-sm-5'>
-                    <input  className='form-control admin-input'
-                            name='tempo'
-                            type='text'
-                            value={this.state.tempo}
-                            onChange={this.handleChange}
-                            disabled={!this.state.editable}
-                    />
+                    <select
+                      className="form-control admin-input"
+                      name="tempo"
+                      value={this.state.tempo}
+                      onChange={this.handleChange}
+                      style={{ width: '365px' }}
+                      disabled={!this.state.editable}
+                    >
+                      {
+                        ["...", "FAST", "SLOW"].map(option => (
+                          <option key={option} value={option}>{option}</option>
+                        ))
+                      }
+                    </select>
                 </div>
 
-                <div className='col-sm-3'>
+                <div className='col-sm-3 btn-link'>
                     <button type='submit'
                          name='update'
                          className='btn btn-success form-control'>
@@ -167,18 +182,38 @@ class DetailsPage extends React.Component {
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> LANGUAGE: </label>
                 <div className='col-sm-5'>
+                    <select
+                      className="form-control admin-input"
+                      name="language"
+                      value={this.state.language}
+                      onChange={this.handleChange}
+                      style={{ width: '365px' }}
+                      disabled={!this.state.editable}
+                    >
+                      {
+                        ["...", "ENGLISH", "LUGANDA", "SWAHILI", "OTHER"].map(option => (
+                          <option key={option} value={option}>{option}</option>
+                        ))
+                      }
+                    </select>
+                </div>
+              </div>
+
+              <div className='form-group'>
+                <label className='control-label col-sm-2 admin-label'> COMMENT: </label>
+                <div className='col-sm-5'>
                     <input  className='form-control admin-input'
-                            name='language'
+                            name='comment'
                             type='text'
-                            value={this.state.language}
+                            value={this.state.comment}
                             onChange={this.handleChange}
                             disabled={!this.state.editable}
                     />
                 </div>
               </div>
-            <div className='form-group'>
+            <div className='form-group btn-pos'>
             {!this.state.editable &&
-              <div className='col-sm-3'>
+              <div className='col-sm-2'>
                   <button
                        name='update'
                        onClick={this.handleEdit}
@@ -188,7 +223,7 @@ class DetailsPage extends React.Component {
               </div>
             }
               {this.state.editable &&
-              <div className='col-sm-3'>
+              <div className='col-sm-2'>
                   <button type='button'
                        name='save'
                        onClick={this.handleSave}
