@@ -3,8 +3,9 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
+import { withRouter } from 'react-router'
 
-export default class PraisePage extends React.Component {
+class PraisePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +15,7 @@ export default class PraisePage extends React.Component {
     };
 
     this.search = this.search.bind(this);
+    this.test = this.test.bind(this);
   }
 
   componentDidMount(){
@@ -30,14 +32,18 @@ export default class PraisePage extends React.Component {
       [name]: value,
     })
   }
-
+  test(e){
+    e.preventDefault();
+    this.props.router.goBack();
+  }
 
   render() {
+    console.log("tfdfgsffsd",this.props)
     return (
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home" className="btn-img" >
+            <Link  to='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
               </Link>
               <header className="category-header">
@@ -47,6 +53,7 @@ export default class PraisePage extends React.Component {
               <div className='admin-header col-sm-2'>
                   <button type=''
                        name='update'
+                       onClick={this.test}
                        className='btn btn-success form-control add'>
                        ADD PRAISE SONG
                   </button>
@@ -116,3 +123,4 @@ export default class PraisePage extends React.Component {
     );
   }
 }
+export default withRouter(PraisePage)

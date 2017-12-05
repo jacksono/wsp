@@ -36,6 +36,19 @@ export default class Dashboard extends React.Component {
 
             <div className='form-group'>
               <div className=' category col-sm-5'>
+              <Link to ="/add">
+                  <input className='btn-home form-control'
+                         name='praise'
+                         type='button'
+                         value='ADD NEW SONG'
+                         onClick=''
+                  />
+                  </Link>
+              </div>
+            </div>
+
+            <div className='form-group'>
+              <div className=' category col-sm-5'>
               <Link to ="/others">
                   <input className='btn-home form-control'
                          name='other'

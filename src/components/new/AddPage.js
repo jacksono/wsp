@@ -3,8 +3,17 @@ import React from 'react';
 import {Link, IndexLink} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
+import toastr from 'toastr';
+import { withRouter } from 'react-router'
+import '../../../node_modules/toastr/build/toastr.css';
 
-export default class DetailsPage extends React.Component {
+toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-left",
+              }
+
+class AddPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,8 +55,9 @@ export default class DetailsPage extends React.Component {
     }
     apiCall(editValues, 'post', 'add/')
     .then((response) => {
-        console.log("result", response.msg)
+        toastr.success("Saved successfully")
       }).catch(error => (error));
+    this.props.router.push("/details/"+editValues.title);
   }
 
   render() {
@@ -55,7 +65,7 @@ export default class DetailsPage extends React.Component {
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home" className="btn-img" >
+            <Link to={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
             </Link>
               <header className="category-header">
@@ -99,7 +109,7 @@ export default class DetailsPage extends React.Component {
                     />
                 </div>
 
-                <div className='col-sm-3'>
+                <div className='col-sm-3 btn-link'>
                     <button type='submit'
                          name='update'
                          className='btn btn-success form-control'>
@@ -119,7 +129,7 @@ export default class DetailsPage extends React.Component {
                     />
                 </div>
 
-                <div className='col-sm-3'>
+                <div className='col-sm-3 btn-link'>
                     <button type='submit'
                          name='update'
                          className='btn btn-success form-control'>
@@ -150,19 +160,19 @@ export default class DetailsPage extends React.Component {
                     />
                 </div>
               </div>
-            <div className='form-group'>
-              <div className='col-sm-3'>
+            <div className='form-group btn-pos'>
+              <div className='col-sm-2'>
                   <button
                        name='update'
-                       onClick={this.handleEdit}
+                       onClick={this.handleSave}
                        className='btn btn-success form-control'>
                        Save
                   </button>
               </div>
-              <div className='col-sm-3'>
+              <div className='col-sm-2'>
                   <button type='button'
                        name='save'
-                       onClick={this.handleSave}
+                       onClick=''
                        className='btn btn-default form-control cancelBtn'>
                        Clear
                   </button>
@@ -176,3 +186,5 @@ export default class DetailsPage extends React.Component {
     );
   }
 }
+
+export default withRouter(AddPage)
