@@ -65,7 +65,7 @@ class AddPage extends React.Component {
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to={this.props.router.goBack} className="btn-img" >
+            <Link to='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
             </Link>
               <header className="category-header">

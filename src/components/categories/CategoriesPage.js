@@ -1,14 +1,14 @@
 
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
+import {Link, IndexLink, withRouter} from 'react-router';
 
-export default class CategoriesPage extends React.Component {
+class CategoriesPage extends React.Component {
   render() {
     return (
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home" className="btn-img" >
+            <Link to='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
             </Link>
 
@@ -70,3 +70,4 @@ export default class CategoriesPage extends React.Component {
     );
   }
 }
+export default withRouter(CategoriesPage)

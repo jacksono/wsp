@@ -22,12 +22,6 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
-  resolve: {
-  modules: [
-    path.resolve('./wsp'),
-    path.resolve('./node_modules')
-  ]
-  },
   module: {
     loaders: [
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},

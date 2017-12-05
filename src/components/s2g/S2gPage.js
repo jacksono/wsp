@@ -1,10 +1,10 @@
 'use strict';
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
+import {Link, IndexLink, withRouter} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
 
-export default class S2gPage extends React.Component {
+class S2gPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +35,7 @@ export default class S2gPage extends React.Component {
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home" className="btn-img" >
+            <Link to ='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
               </Link>
               <header className="category-header">
@@ -101,3 +101,4 @@ export default class S2gPage extends React.Component {
     );
   }
 }
+export default withRouter(S2gPage)

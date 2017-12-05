@@ -15,10 +15,9 @@ class PraisePage extends React.Component {
     };
 
     this.search = this.search.bind(this);
-    this.test = this.test.bind(this);
   }
 
-  componentDidMount(){
+  componentWillMount(){
     apiCall(null, 'get', 'praise/')
     .then((response) => {
       this.setState({songs: response})
@@ -32,13 +31,8 @@ class PraisePage extends React.Component {
       [name]: value,
     })
   }
-  test(e){
-    e.preventDefault();
-    this.props.router.goBack();
-  }
 
   render() {
-    console.log("tfdfgsffsd",this.props)
     return (
         <div>
         <form className='form-horizontal'>
@@ -53,7 +47,6 @@ class PraisePage extends React.Component {
               <div className='admin-header col-sm-2'>
                   <button type=''
                        name='update'
-                       onClick={this.test}
                        className='btn btn-success form-control add'>
                        ADD PRAISE SONG
                   </button>

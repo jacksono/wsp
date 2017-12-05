@@ -1,11 +1,11 @@
 
 
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
+import {Link, IndexLink, withRouter} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
 
-export default class WorshipPage extends React.Component {
+class WorshipPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,7 +35,7 @@ export default class WorshipPage extends React.Component {
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home">
+            <Link to ="" onClick={this.props.router.goBack}>
               <a className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
               </a>
@@ -106,3 +106,4 @@ export default class WorshipPage extends React.Component {
     );
   }
 }
+export default withRouter(WorshipPage)
