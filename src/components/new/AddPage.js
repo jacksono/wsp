@@ -89,13 +89,21 @@ class AddPage extends React.Component {
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> CATEGORY: </label>
                 <div className='col-sm-5'>
-                    <input  className='form-control admin-input'
-                            name='category'
-                            type='text'
-                            value={this.state.category}
-                            onChange={this.handleChange}
-                            disabled={this.props.params.category === ' ' ? false : true}
-                    />
+
+                    <select
+                      className="form-control admin-input"
+                      name="category"
+                      value={this.state.category}
+                      onChange={this.handleChange}
+                      style={{ width: '365px' }}
+                      disabled={this.props.params.category === ' ' ? false : true}
+                    >
+                      {
+                        ["...", "PRAISE", "WORSHIP", "STG", "OTHER"].map(option => (
+                          <option key={option} value={option}>{option}</option>
+                        ))
+                      }
+                    </select>
                 </div>
               </div>
 
