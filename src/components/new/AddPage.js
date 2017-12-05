@@ -89,7 +89,6 @@ class AddPage extends React.Component {
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> CATEGORY: </label>
                 <div className='col-sm-5'>
-
                     <select
                       className="form-control admin-input"
                       name="category"
@@ -130,12 +129,20 @@ class AddPage extends React.Component {
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> TEMPO: </label>
                 <div className='col-sm-5'>
-                    <input  className='form-control admin-input'
-                            name='tempo'
-                            type='text'
-                            value={this.state.tempo}
-                            onChange={this.handleChange}
-                    />
+
+                    <select
+                      className="form-control admin-input"
+                      name="tempo"
+                      value={this.state.tempo}
+                      onChange={this.handleChange}
+                      style={{ width: '365px' }}
+                    >
+                      {
+                        ["...", "FAST", "SLOW"].map(option => (
+                          <option key={option} value={option}>{option}</option>
+                        ))
+                      }
+                    </select>
                 </div>
 
                 <div className='col-sm-3 btn-link'>
@@ -161,12 +168,19 @@ class AddPage extends React.Component {
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> LANGUAGE: </label>
                 <div className='col-sm-5'>
-                    <input  className='form-control admin-input'
-                            name='language'
-                            type='text'
-                            value={this.state.language}
-                            onChange={this.handleChange}
-                    />
+                    <select
+                      className="form-control admin-input"
+                      name="language"
+                      value={this.state.language}
+                      onChange={this.handleChange}
+                      style={{ width: '365px' }}
+                    >
+                      {
+                        ["...", "ENGLISH", "LUGANDA", "SWAHILI", "OTHER"].map(option => (
+                          <option key={option} value={option}>{option}</option>
+                        ))
+                      }
+                    </select>
                 </div>
               </div>
             <div className='form-group btn-pos'>
