@@ -5,19 +5,20 @@ import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
 import { withRouter } from 'react-router'
 
+
 class PraisePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchValue: '',
-      songs: []
+      songs: [],
 
     };
 
     this.search = this.search.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     apiCall(null, 'get', 'praise/')
     .then((response) => {
       this.setState({songs: response})
@@ -47,6 +48,9 @@ class PraisePage extends React.Component {
               <div className='admin-header col-sm-2'>
                   <button type=''
                        name='update'
+                       onClick= {(e)=>{
+                         e.preventDefault()
+                         this.props.router.push('/add/PRAISE')}}
                        className='btn btn-success form-control add'>
                        ADD PRAISE SONG
                   </button>

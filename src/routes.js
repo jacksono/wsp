@@ -24,7 +24,7 @@ export default (
       <Route path="/details/:song" component={DetailsPage} />
       <Route path="/lyrics/:song" component={LyricsPage} />
       <Route path="/admin" component={Search} />
-      <Route path="/add" component={AddPage} />
+      <Route path="/add/:category" component={AddPage} />
       <Route path="/categories" component={CategoriesPage} />
       <Route path="*" component={Dashboard} />
     </Route>
