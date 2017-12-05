@@ -22,9 +22,15 @@ class DetailsPage extends React.Component {
   this.handleChange = this.handleChange.bind(this);
   this.handleEdit = this.handleEdit.bind(this);
   this.handleSave = this.handleSave.bind(this);
+  this.handleCancel = this.handleCancel.bind(this);
+  this.fetchSongDetails = this.fetchSongDetails.bind(this);
   }
 
   componentWillMount(){
+    this.fetchSongDetails()
+  }
+
+  fetchSongDetails(){
     apiCall(null, 'get', 'songs/')
     .then((response) => {
       response.map((s) => {
@@ -41,7 +47,6 @@ class DetailsPage extends React.Component {
       })
       }).catch(error => (error));
   }
-
   handleChange(event) {
     const { name, value } = event.target;
     event.preventDefault();
@@ -70,7 +75,12 @@ class DetailsPage extends React.Component {
       }).catch(error => (error));
     this.setState({editable: false})
   }
+  handleCancel(e){
+    e.preventDefault();
+    this.fetchSongDetails();
+    this.setState({editable: false})
 
+  }
   render() {
     return (
         <div>
@@ -213,23 +223,48 @@ class DetailsPage extends React.Component {
               </div>
             <div className='form-group btn-pos'>
             {!this.state.editable &&
-              <div className='col-sm-2'>
+              <div>
+              <div className='col-sm-3'>
                   <button
                        name='update'
                        onClick={this.handleEdit}
                        className='btn btn-success form-control'>
-                       Edit
+                       Edit This Song
                   </button>
+
               </div>
+              <div className='col-sm-3'>
+                  <button
+                       name='update'
+                       onClick={(e)=>{
+                         e.preventDefault()
+                         this.props.router.push('/add/ ')}}
+                       className='btn btn-success form-control'>
+                       Add A New Song
+                  </button>
+
+              </div>
+              </div>
+
             }
               {this.state.editable &&
-              <div className='col-sm-2'>
+                <div>
+              <div className='col-sm-3'>
                   <button type='button'
                        name='save'
                        onClick={this.handleSave}
-                       className='btn btn-default form-control cancelBtn'>
-                       Save
+                       className='btn btn-success form-control cancelBtn'>
+                       Save Changes
                   </button>
+              </div>
+              <div className='col-sm-2'>
+                  <button type='button'
+                       name='save'
+                       onClick={this.handleCancel}
+                       className='btn btn-default form-control cancelBtn'>
+                       Cancel
+                  </button>
+              </div>
               </div>
             }
           </div>
