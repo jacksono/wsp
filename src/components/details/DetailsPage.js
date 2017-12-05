@@ -23,6 +23,8 @@ class DetailsPage extends React.Component {
       message: '',
       language: '',
       comment: '',
+      created: '',
+      updated: '',
       editable: false,
       song: {}
 
@@ -39,20 +41,18 @@ class DetailsPage extends React.Component {
   }
 
   fetchSongDetails(){
-    apiCall(null, 'get', 'songs/')
-    .then((response) => {
-      response.map((s) => {
-        if(s.title === this.props.params.song){
+    apiCall(null, 'get', 'song/'+this.props.params.song)
+    .then((s) => {
           this.setState({song: s,
                         title: s.title,
                         category: s.category,
                         origin: s.origin,
                         message: s.message,
                         language: s.language,
-                        tempo: s.tempo
+                        tempo: s.tempo,
+                        created: s.created,
+                        updated: s.updated
                         })
-        }
-      })
       }).catch(error => (error));
   }
   handleChange(event) {
@@ -80,6 +80,7 @@ class DetailsPage extends React.Component {
     apiCall(editValues, 'put', this.props.params.song)
     .then((response) => {
         toastr.success("Changes Saved Successfully")
+        this.setState({updated: response.updated})
       }).catch(error => (error));
     this.setState({editable: false})
   }
@@ -209,7 +210,7 @@ class DetailsPage extends React.Component {
                       disabled={!this.state.editable}
                     >
                       {
-                        ["...", "ENGLISH", "LUGANDA", "SWAHILI", "OTHER"].map(option => (
+                        ["...", "ENG", "LUG", "SWA", "OTHER"].map(option => (
                           <option key={option} value={option}>{option}</option>
                         ))
                       }
@@ -229,6 +230,32 @@ class DetailsPage extends React.Component {
                     />
                 </div>
               </div>
+
+              <div className='form-group'>
+                <label className='control-label col-sm-2 admin-label'> CREATED: </label>
+                <div className='col-sm-5'>
+                    <input  className='form-control admin-input'
+                            name='comment'
+                            type='text'
+                            value={this.state.created.slice(0,16)}
+                            disabled
+                    />
+                </div>
+              </div>
+
+              <div className='form-group'>
+                <label className='control-label col-sm-2 admin-label'> UPDATED:</label>
+                <div className='col-sm-5'>
+                    <input  className='form-control admin-input'
+                            name='comment'
+                            type='text'
+                            value={this.state.updated ? this.state.updated.slice(0,16) : 'Not yet updated' }
+                            disabled
+                    />
+                </div>
+              </div>
+
+
             <div className='form-group btn-pos'>
             {!this.state.editable &&
               <div>
