@@ -24,7 +24,8 @@ class AddPage extends React.Component {
       message: '',
       language: '',
       comment: '',
-      song: {}
+      song: {},
+      error: false
 
     };
   this.handleChange = this.handleChange.bind(this);
@@ -37,6 +38,9 @@ class AddPage extends React.Component {
   handleChange(event) {
     const { name, value } = event.target;
     event.preventDefault();
+    if(name === 'title'){
+      this.setState({error: false})
+    }
     this.setState({
       [name]: value,
     })
@@ -47,6 +51,7 @@ class AddPage extends React.Component {
   }
   handleSave(e){
     e.preventDefault()
+    this.setState({error:false})
     let editValues = {
       title: this.state.title.toUpperCase(),
       origin: this.state.origin.toUpperCase(),
@@ -55,11 +60,17 @@ class AddPage extends React.Component {
       message: this.state.message.toUpperCase(),
       category: this.state.category.toUpperCase()
     }
-    apiCall(editValues, 'post', 'add/')
-    .then((response) => {
-        toastr.success("Saved successfully")
-      }).catch(error => (error));
-    this.props.router.push("/details/"+editValues.title);
+    if(editValues.title){
+      apiCall(editValues, 'post', 'add/')
+      .then((response) => {
+          toastr.success("Saved successfully")
+        }).catch(error => (error));
+      this.props.router.push("/details/"+editValues.title);
+    }
+    else{
+      this.setState({error: true})
+      toastr.error("ERROR WHILE SAVING")
+    }
   }
 
   handleClear(e){
@@ -72,6 +83,7 @@ class AddPage extends React.Component {
       message: '',
       language: '',
       comment: '',
+      error: false
 
     })
   }
@@ -89,16 +101,22 @@ class AddPage extends React.Component {
             </div>
 
             <div className='table-div' >
-              <div className='form-group'>
-                <label className='control-label col-sm-2 admin-label'> TITLE: </label>
+              <div className={'form-group ' + (this.state.error ? "has-error" : '')} >
+                <label className='control-label col-sm-2 admin-label '> TITLE: </label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
                             name='title'
                             type='text'
                             value={this.state.title}
                             onChange={this.handleChange}
+                            required
                     />
                 </div>
+                {this.state.error &&
+                <div className='input-error'>
+                    {"Please fill in a song title"}
+                  </div>
+                }
               </div>
 
               <div className='form-group'>

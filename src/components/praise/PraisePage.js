@@ -1,9 +1,9 @@
 
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
+import {Link, IndexLink, withRouter} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
-import { withRouter } from 'react-router'
+import Glyphicon from 'react-bootstrap/lib/Glyphicon'
 
 
 class PraisePage extends React.Component {
@@ -45,28 +45,29 @@ class PraisePage extends React.Component {
                 <p className='title'>PRAISE </p>
               </header>
               <div className='form-group'>
-              <div className='admin-header col-sm-2'>
+              <div className='admin-header col-sm-3'>
                   <button type=''
                        name='update'
                        onClick= {(e)=>{
                          e.preventDefault()
                          this.props.router.push('/add/PRAISE')}}
-                       className='btn btn-success form-control add'>
-                       ADD PRAISE SONG
+                       className='btn btn-default form-control add'>
+                       ADD A NEW PRAISE SONG
                   </button>
               </div>
-              <div className='col-sm-5 admin-header'>
 
-                  <input  className='form-control cat-search'
-                          name='searchValue'
-                          placeholder= 'S E A R C H'
-                          type='text'
-                          value = {this.state.searchValue}
-                          onChange = {this.search}
-                  />
+
+              <div className='col-sm-5 admin-header'>
+              <input  className='form-control cat-search'
+                      name='searchValue'
+                      placeholder= 'S E A R C H'
+                      type='text'
+                      value = {this.state.searchValue}
+                      onChange = {this.search}
+              />
               </div>
               </div>
-            </div>
+              </div>
 
 
             <div className='table-div' >
