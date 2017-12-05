@@ -3,6 +3,14 @@ import React from 'react';
 import {Link, IndexLink, withRouter} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
+import toastr from 'toastr';
+import '../../../node_modules/toastr/build/toastr.css';
+
+toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-left",
+              }
 
 class DetailsPage extends React.Component {
   constructor(props) {
@@ -71,7 +79,7 @@ class DetailsPage extends React.Component {
     }
     apiCall(editValues, 'put', this.props.params.song)
     .then((response) => {
-        console.log("result", response.msg)
+        toastr.success("Changes Saved Successfully")
       }).catch(error => (error));
     this.setState({editable: false})
   }
