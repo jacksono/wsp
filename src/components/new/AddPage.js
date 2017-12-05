@@ -30,6 +30,7 @@ class AddPage extends React.Component {
   this.handleChange = this.handleChange.bind(this);
   this.handleEdit = this.handleEdit.bind(this);
   this.handleSave = this.handleSave.bind(this);
+  this.handleClear = this.handleClear.bind(this);
   }
 
 
@@ -61,6 +62,19 @@ class AddPage extends React.Component {
     this.props.router.push("/details/"+editValues.title);
   }
 
+  handleClear(e){
+    e.preventDefault();
+    this.setState({
+      title: '',
+      category: '',
+      origin: '',
+      tempo: '',
+      message: '',
+      language: '',
+      comment: '',
+
+    })
+  }
   render() {
     return (
         <div>
@@ -208,7 +222,7 @@ class AddPage extends React.Component {
               <div className='col-sm-2'>
                   <button type='button'
                        name='save'
-                       onClick=''
+                       onClick={this.handleClear}
                        className='btn btn-default form-control cancelBtn'>
                        Clear
                   </button>
