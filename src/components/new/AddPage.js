@@ -18,7 +18,7 @@ class AddPage extends React.Component {
     super(props);
     this.state = {
       title: '',
-      category: this.props.params.category,
+      category: this.props.params.category.replace(/\s+$/g,''),
       origin: '',
       tempo: '',
       message: '',
@@ -94,7 +94,7 @@ class AddPage extends React.Component {
                             type='text'
                             value={this.state.category}
                             onChange={this.handleChange}
-                            disabled={this.state.category === ' ' ? false : true}
+                            disabled={this.props.params.category === ' ' ? false : true}
                     />
                 </div>
               </div>
