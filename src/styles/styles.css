@@ -224,8 +224,8 @@ a{
 
 .Collapsible {
   background-color: #D9D9D9;
-  margin-left: 140px;
-  width: 75%;
+  margin-left: 25px;
+  width: 95%;
   margin-top:10px;
   height: 150%;
   }
@@ -307,7 +307,7 @@ a{
   border: none;
 }
 .ReactTable .rt-tbody .rt-td{
-  color: blue;
+  color: #5271ff;
 }
 .ReactTable{
   border: none;
@@ -321,9 +321,6 @@ a{
     border-top-left-radius: 10px;
 }
 .ReactTable .rt-tbody .rt-td {
-    /* color: blue; */
-    /*border-bottom: 1px solid;
-    border-top: 1px solid;*/
     border-color: #fff3d2
 }
 .ReactTable.-striped .rt-tr.-odd {

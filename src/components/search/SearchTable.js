@@ -6,39 +6,46 @@ const SearchTable = (props) => {
     let dataArray = [];
     const columns = [
       {
+      id: '#',
+      Header: '#',
+      accessor: d => d.id,
+      maxWidth: 40
+      },
+      {
       id: 'title',
       Header: 'TITLE',
-      accessor: d => "SONG"
+      accessor: d => d.title,
+      maxWidth: 1000
       },
       {
         id: 'cat',
         Header: 'CATEGORY',
-        accessor: d => "SONG"
+        accessor: d => d.category,
+        maxWidth: 100
       },
       {
       id: 'origin',
       Header: 'ORIGIN',
-      accessor: d => "SONG"
+      accessor: d => d.origin,
+      maxWidth: 100
       },
       {
         id: 'lang',
         Header: 'LANGUAGE',
-        accessor: d => "SONG"
+        accessor: d => d.language,
+        maxWidth: 80
       },
       {
       id: 'tempo',
       Header: 'TEMPO',
-      accessor: d => "SONG"
+      accessor: d => d.tempo,
+      maxWidth: 70
       },
       {
       id: 'msg',
       Header: 'MESSAGE',
-      accessor: d => "SONG"
-      },
-      {
-      id: 'date',
-      Header: 'DATE ADDED',
-      accessor: d => "SONG"
+      accessor: d => d.message,
+      maxWidth: 200
       },
           ];
 
@@ -49,8 +56,8 @@ const SearchTable = (props) => {
               <div>
               <ReactTable
                 className="-striped -highlight"
-                data={[1,2,3,4,5,6,7,8]}
-                pageSize= {5}
+                data={props.songs}
+                pageSize= {10}
                 columns={columns}
                 showPageSizeOptions={false}
               />
