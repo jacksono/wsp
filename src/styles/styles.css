@@ -124,6 +124,7 @@ a{
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 }
+
 .table tr td:last-child{
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
@@ -201,7 +202,7 @@ a{
 .btn-default {
     color: #A1212A !important;
     background-color: #FFF3D4 !important;
-    border-color: #FFF3D4 !important;
+    border-color: black !important;
     border-radius: 10px !important
 }
 .btn-default:hover {
@@ -222,7 +223,7 @@ a{
 }
 
 .Collapsible {
-  background-color: #FFF3D4;
+  background-color: #D9D9D9;
   margin-left: 140px;
   width: 75%;
   margin-top:10px;
@@ -299,4 +300,41 @@ a{
 }
 .srch-form {
   margin-left: 20px
+}
+.ReactTable .rt-thead .rt-resizable-header-content {
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+}
+.ReactTable .rt-tbody .rt-td{
+  color: blue;
+}
+.ReactTable{
+  border: none;
+}
+.ReactTable .rt-tbody .rt-td:last-child {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.ReactTable .rt-tbody .rt-td:first-child {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.ReactTable .rt-tbody .rt-td {
+    /* color: blue; */
+    /*border-bottom: 1px solid;
+    border-top: 1px solid;*/
+    border-color: #fff3d2
+}
+.ReactTable.-striped .rt-tr.-odd {
+    background-color: #fff3d2;
+    border-radius: 10px;
+}
+.ReactTable.-striped .rt-tr.-even {
+    background-color: white;
+    border-radius: 10px;
+}
+.ReactTable .rt-tbody .rt-tr-group {
+    border: none;
+    margin-bottom: 1px;
 }

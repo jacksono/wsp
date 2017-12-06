@@ -3,6 +3,7 @@ import React from 'react';
 import {Link, IndexLink, withRouter} from 'react-router';
 import Collapsible from 'react-collapsible';
 import SearchForm from './SearchForm'
+import SearchTable from './SearchTable'
 
 class SearchPage extends React.Component {
   render() {
@@ -17,6 +18,10 @@ class SearchPage extends React.Component {
 
             <Collapsible open={true} trigger="SEARCH CRITERIA" triggerOpenedClassName="CustomTriggerCSS--open">
               < SearchForm />
+            </Collapsible>
+
+            <Collapsible open={true} trigger="SEARCH RESULTS" triggerOpenedClassName="CustomTriggerCSS--open" className="searchtable">
+              < SearchTable />
             </Collapsible>
 
             </div>

@@ -142,7 +142,7 @@ export default class SearchForm extends React.Component {
               <button type='button'
                    name='clear'
                    onClick={this.handleClear}
-                   className='btn btn-default form-control clear-btn'>
+                   className='btn btn-default form-control'>
                    Clear
               </button>
           </div>
