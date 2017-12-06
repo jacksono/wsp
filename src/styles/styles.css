@@ -56,14 +56,14 @@ float: left;
   transform: translateX(-50%);
   margin-top:20px;
   margin-bottom:20px;
-  font-size: 20px;
+  font-size: 24px;
 }
 .btn-right{
   float: right;
   margin-right: 45px;
 }
 input.btn-home{
-  font-size: 30px;
+  font-size: 24px;
   font-weight: bold;
   height: 50px;
   color: black;}
@@ -81,24 +81,21 @@ input.btn-home:hover{
   color: #d9d9d9;
 }
 .category-header {
-    text-align: center;
     margin-top: 10px;
     padding-top: 10px;
     padding-bottom: 3px;
-    padding-right: 60px;
     font-size: 24px;
     font-weight: bold;
     color: black;
-    width: 400px;
     background: white;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-100%);
     border-radius: 8px;
 }
 .title{
-  margin-right: 70px;
-  padding-left: 55px;
+
+  text-align: center;
 }
 .table-div{
   margin-top: -10px;
@@ -163,7 +160,6 @@ a{
 }
 .form-control.admin-input{
   border-radius: 5px;
-  width: 120%;
 }
 .form-control.cat-search{
     text-align: center;
@@ -296,7 +292,9 @@ a{
 }
 .srch-btn-pos{
   margin-top: 30px !important;
-  margin-left: 250px !important;
+  /*margin-left: 250px !important;*/
+  position: relative;
+  left: 25%;
 }
 .srch-form {
   margin-left: 20px

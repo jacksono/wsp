@@ -38,11 +38,14 @@ class S2gPage extends React.Component {
             <Link to ='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
               </Link>
-              <header className="category-header">
-                <p className='title'>SONGS TO GLORY</p>
-              </header>
+              <input  className='category-header title'
+                      name='title'
+                      type='text'
+                      value={"SONGS TO GLORY"}
+                      disabled
+              />
 
-              <div className='col-sm-5 admin-header'>
+              <div className='col-sm-5 cat-search admin-header'>
                   <input  className='form-control cat-search'
                           name='searchValue'
                           placeholder= 'S E A R C H'

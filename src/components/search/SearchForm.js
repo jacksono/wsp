@@ -16,6 +16,7 @@ export default class SearchForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
   handleChange(event) {
     const { name, value } = event.target;
@@ -37,6 +38,10 @@ export default class SearchForm extends React.Component {
       comment: '',
 
     })
+  }
+  handleSearch(e){
+    e.preventDefault();
+    this.props.toggle()
   }
 
   render() {
@@ -133,7 +138,7 @@ export default class SearchForm extends React.Component {
           <div className='col-sm-3'>
               <button
                    name='update'
-                   onClick={this.handleSave}
+                   onClick={this.handleSearch}
                    className='btn btn-success form-control'>
                    Search
               </button>

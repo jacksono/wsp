@@ -41,9 +41,12 @@ class PraisePage extends React.Component {
             <Link  to='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
               </Link>
-              <header className="category-header">
-                <p className='title'>PRAISE </p>
-              </header>
+              <input  className='category-header title'
+                      name='title'
+                      type='text'
+                      value={"PRAISE"}
+                      disabled
+              />
               <div className='form-group'>
               <div className='admin-header col-sm-3'>
                   <button type=''

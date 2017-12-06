@@ -10,7 +10,7 @@ export default class Dashboard extends React.Component {
 
             <div className='form-group'>
               <div className=' category col-sm-5'>
-              <Link to ="/">
+              <Link to ="/search">
                   <input className='btn-home form-control'
                          name='praise'
                          type='button'
@@ -27,8 +27,7 @@ export default class Dashboard extends React.Component {
                   <input className='btn-home form-control'
                          name='praise'
                          type='button'
-                         value='SONG CATEGORIES'
-                         onClick=''
+                         value='GO TO CATEGORIES'
                   />
                   </Link>
               </div>
@@ -40,7 +39,7 @@ export default class Dashboard extends React.Component {
                   <input className='btn-home form-control'
                          name='praise'
                          type='button'
-                         value='ADD NEW SONG'
+                         value='ADD A NEW SONG'
                          onClick=''
                   />
                   </Link>

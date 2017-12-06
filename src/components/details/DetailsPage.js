@@ -98,9 +98,12 @@ class DetailsPage extends React.Component {
             <Link to='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
             </Link>
-              <header className="category-header">
-                <p className='title'>SONG DETAILS </p>
-              </header>
+              <input  className='category-header title'
+                      name='title'
+                      type='text'
+                      value={"SONG DETAILS"}
+                      disabled
+              />
             </div>
 
             <div className='table-div' >

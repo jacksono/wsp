@@ -95,9 +95,12 @@ class AddPage extends React.Component {
             <Link to='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
             </Link>
-              <header className="category-header">
-                <p className='title'>ADD SONG </p>
-              </header>
+            <input  className='category-header title'
+                    name='title'
+                    type='text'
+                    value={"ADD SONG"}
+                    disabled
+            />
             </div>
 
             <div className='table-div' >

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactTable from 'react-table';
 import "react-table/react-table.css";
 
+
+
 const SearchTable = (props) => {
     let dataArray = [];
     const columns = [
@@ -74,6 +76,8 @@ const SearchTable = (props) => {
                         name='edit'
                         type='button'
                         value='SEARCH'
+                        onClick={(e) => {e.preventDefault()
+                                      props.toggle()}}
                     />
                 </div>
 
