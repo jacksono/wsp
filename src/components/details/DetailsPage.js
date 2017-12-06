@@ -232,7 +232,7 @@ class DetailsPage extends React.Component {
               </div>
 
               <div className='form-group'>
-                <label className='control-label col-sm-2 admin-label'> CREATED: </label>
+                <label className='control-label col-sm-2 admin-label'> ADDED: </label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
                             name='comment'
@@ -242,18 +242,19 @@ class DetailsPage extends React.Component {
                     />
                 </div>
               </div>
-
+              {this.state.updated &&
               <div className='form-group'>
                 <label className='control-label col-sm-2 admin-label'> UPDATED:</label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
                             name='comment'
                             type='text'
-                            value={this.state.updated ? this.state.updated.slice(0,16) : 'Not yet updated' }
+                            value={this.state.updated.slice(0,16)}
                             disabled
                     />
                 </div>
               </div>
+            }
 
 
             <div className='form-group btn-pos'>
