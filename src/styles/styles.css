@@ -162,6 +162,7 @@ a{
 }
 .form-control.admin-input{
   border-radius: 5px;
+  width: 120%;
 }
 .form-control.cat-search{
     text-align: center;
@@ -207,4 +208,95 @@ a{
     color: #575170 !important;
     background-color: #F9AF4C !important;
     border-color: #FFF3D4 !important;
+}
+
+.collapsible-header {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 24px;
+  color: #fff;
+  background: #363463;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Collapsible {
+  background-color: #FFF3D4;
+  margin-left: 140px;
+  width: 75%;
+  margin-top:10px;
+  height: 150%;
+  }
+
+.Collapsible__contentInner {
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  border-top: 0;
+  }
+
+.Collapsible__contentInner p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.Collapsible__contentInner p:last-child {
+  margin-bottom: 0;
+}
+
+.Collapsible__trigger {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  border: 1px solid white;
+  padding: 15px;
+  background: #726A95;
+  color: white;
+  }
+
+.Collapsible__trigger:after {
+  font-family: 'Glyphicons Halflings';
+  content: '\e252';
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: block;
+  transition: transform 300ms;
+  }
+
+.Collapsible__trigger.is-open:after {
+  transform: rotateZ(180deg);
+  }
+
+.Collapsible__trigger.is-disabled {
+  opacity: 0.5;
+  background-color: grey;
+  }
+
+.CustomTriggerCSS {
+  background-color: lightcoral;
+  transition: background-color 200ms ease;
+  }
+
+.CustomTriggerCSS--open {
+  background-color: #675f8a ;
+  color: #FFF !important;
+  }
+
+.collapsible-header-top {
+  margin-top: 20px;
+}
+.clear-btn {
+  background-color: white !important;
+  border-color: black !important;
+}
+.srch-btn-pos{
+  margin-top: 30px !important;
+  margin-left: 250px !important;
+}
+.srch-form {
+  margin-left: 20px
 }

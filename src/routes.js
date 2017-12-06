@@ -11,7 +11,7 @@ import AddPage from './components/new/AddPage'
 import DetailsPage from './components/details/DetailsPage'
 import LyricsPage from './components/lyrics/LyricsPage'
 import Dashboard from './components/home/Dashboard'
-
+import SearchPage from './components/search/SearchPage'
 
 export default (
     <Route path="/" component={App}>
@@ -26,6 +26,7 @@ export default (
       <Route path="/admin" component={Search} />
       <Route path="/add/:category" component={AddPage} />
       <Route path="/categories" component={CategoriesPage} />
+      <Route path="/search" component={SearchPage} />
       <Route path="*" component={Dashboard} />
     </Route>
   );
