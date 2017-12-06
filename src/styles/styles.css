@@ -335,3 +335,6 @@ a{
     border: none;
     margin-bottom: 1px;
 }
+.left {
+  text-align: left !important;
+}

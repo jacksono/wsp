@@ -9,13 +9,15 @@ const SearchTable = (props) => {
       id: '#',
       Header: '#',
       accessor: d => d.id,
-      maxWidth: 40
+      maxWidth: 40,
+      filterable: false
       },
       {
       id: 'title',
       Header: 'TITLE',
       accessor: d => d.title,
-      maxWidth: 1000
+      maxWidth: 1000,
+      headerClassName: 'left'
       },
       {
         id: 'cat',
@@ -31,21 +33,24 @@ const SearchTable = (props) => {
       },
       {
         id: 'lang',
-        Header: 'LANGUAGE',
+        Header: 'LANG',
         accessor: d => d.language,
-        maxWidth: 80
+        maxWidth: 80,
+        className:'center'
       },
       {
       id: 'tempo',
       Header: 'TEMPO',
       accessor: d => d.tempo,
-      maxWidth: 70
+      maxWidth: 70,
+      className:'center'
       },
       {
       id: 'msg',
       Header: 'MESSAGE',
       accessor: d => d.message,
-      maxWidth: 200
+      maxWidth: 200,
+      headerClassName: 'left'
       },
           ];
 
@@ -57,9 +62,10 @@ const SearchTable = (props) => {
               <ReactTable
                 className="-striped -highlight"
                 data={props.songs}
-                pageSize= {10}
+                pageSize= {15}
                 columns={columns}
                 showPageSizeOptions={false}
+                filterable
               />
               </div>
               <div className='form-group'>
