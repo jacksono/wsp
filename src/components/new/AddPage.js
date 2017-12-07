@@ -25,7 +25,8 @@ class AddPage extends React.Component {
       language: '',
       comment: '',
       song: {},
-      error: false
+      errorTitle: false,
+      errorCategory:false
 
     };
   this.handleChange = this.handleChange.bind(this);
@@ -39,7 +40,10 @@ class AddPage extends React.Component {
     const { name, value } = event.target;
     event.preventDefault();
     if(name === 'title'){
-      this.setState({error: false})
+      this.setState({errorTitle: false})
+    }
+    if(name === 'category'){
+      this.setState({errorCategory: false})
     }
     this.setState({
       [name]: value,
@@ -52,6 +56,7 @@ class AddPage extends React.Component {
   handleSave(e){
     e.preventDefault()
     this.setState({error:false})
+    let error = false
     let editValues = {
       title: this.state.title.toUpperCase(),
       origin: this.state.origin.toUpperCase(),
@@ -60,15 +65,22 @@ class AddPage extends React.Component {
       message: this.state.message.toUpperCase(),
       category: this.state.category.toUpperCase()
     }
-    if(editValues.title){
+    if(!editValues.title){
+      this.setState({errorTitle: true})
+      error = true
+    }
+    if(!editValues.category){
+      this.setState({errorCategory: true})
+      error = true
+    }
+    if(!error){
       apiCall(editValues, 'post', 'add/')
       .then((response) => {
           toastr.success("Saved successfully")
         }).catch(error => (error));
-      this.props.router.push("/details/"+editValues.title);
+      this.props.router.push('/details/'+editValues.category+"/"+editValues.title);
     }
     else{
-      this.setState({error: true})
       toastr.error("ERROR WHILE SAVING")
     }
   }
@@ -104,7 +116,7 @@ class AddPage extends React.Component {
             </div>
 
             <div className='table-div' >
-              <div className={'form-group ' + (this.state.error ? "has-error" : '')} >
+              <div className={'form-group ' + (this.state.errorTitle ? "has-error" : '')} >
                 <label className='control-label col-sm-2 admin-label '> TITLE: </label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
@@ -115,14 +127,14 @@ class AddPage extends React.Component {
                             required
                     />
                 </div>
-                {this.state.error &&
+                {this.state.errorTitle &&
                 <div className='input-error'>
                     {"Please fill in a song title"}
                   </div>
                 }
               </div>
 
-              <div className='form-group'>
+              <div className={'form-group ' + (this.state.errorCategory ? "has-error" : '' )}>
                 <label className='control-label col-sm-2 admin-label'> CATEGORY: </label>
                 <div className='col-sm-5'>
                     <select
@@ -140,6 +152,11 @@ class AddPage extends React.Component {
                       }
                     </select>
                 </div>
+                {this.state.errorCategory &&
+                <div className='input-error'>
+                    {"Please fill in a category"}
+                  </div>
+                }
               </div>
 
               <div className='form-group'>
