@@ -19,7 +19,7 @@ const SearchTable = (props) => {
       id: 'title',
       Header: 'TITLE',
       accessor: d => d.title,
-      maxWidth: 1000,
+      maxWidth: props.stg ? 600 :1000,
       headerClassName: 'left'
       },
       {
@@ -33,13 +33,14 @@ const SearchTable = (props) => {
       id: 'origin',
       Header: 'ORIGIN',
       accessor: d => d.origin,
-      maxWidth: 100
+      maxWidth: 100,
+      show: !props.stg
       },
       {
         id: 'lang',
         Header: 'LANGUAGE',
         accessor: d => d.language,
-        maxWidth: 80,
+        maxWidth: props.stg ? 100 :80,
         className:'center'
       },
       {
@@ -53,7 +54,7 @@ const SearchTable = (props) => {
       id: 'msg',
       Header: 'MESSAGE/ALBUM',
       accessor: d => d.message,
-      maxWidth: 200,
+      maxWidth: props.stg ? 250 :200,
       headerClassName: 'left'
       },
       {

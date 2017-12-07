@@ -64,7 +64,7 @@ class OthersPage extends React.Component {
                        name='update'
                        onClick= {(e)=>{
                          e.preventDefault()
-                         this.props.router.push('/add/PRAISE')}}
+                         this.props.router.push('/add/ ')}}
                        className='btn btn-default form-control add'>
                        ADD A NEW SONG
                   </button>
