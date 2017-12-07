@@ -4,6 +4,7 @@ import {Link, IndexLink, withRouter} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon'
+import SearchTable from '../search/SearchTable'
 
 
 class PraisePage extends React.Component {
@@ -12,7 +13,7 @@ class PraisePage extends React.Component {
     this.state = {
       searchValue: '',
       songs: [],
-
+      searchedSongs: []
     };
 
     this.search = this.search.bind(this);
@@ -27,10 +28,20 @@ class PraisePage extends React.Component {
 
   search(event) {
     const { name, value } = event.target;
+    let songsSearched = []
     event.preventDefault();
     this.setState({
       [name]: value,
     })
+    this.state.songs.map((song) => {
+      if(song.title.includes(this.state.searchValue.toUpperCase()) ||
+      song.origin.includes(this.state.searchValue.toUpperCase()) ||
+      song.message.includes(this.state.searchValue.toUpperCase()) ||
+      song.tempo.includes(this.state.searchValue.toUpperCase())){
+        songsSearched.push(song)
+      }
+    })
+    this.setState({searchedSongs : songsSearched})
   }
 
   render() {
@@ -44,7 +55,7 @@ class PraisePage extends React.Component {
               <input  className='category-header title'
                       name='title'
                       type='text'
-                      value={"PRAISE"}
+                      value={"PRAISE SONG LIST"}
                       disabled
               />
               <div className='form-group'>
@@ -59,8 +70,18 @@ class PraisePage extends React.Component {
                   </button>
               </div>
 
+              <div className='admin-header col-sm-3'>
+                  <button type=''
+                       name='update'
+                       onClick= {(e)=>{
+                         e.preventDefault()
+                         this.props.router.push('/categories')}}
+                       className='btn btn-default form-control'>
+                       OTHER CATEGORIES
+                  </button>
+              </div>
 
-              <div className='col-sm-5 admin-header'>
+              <div className='col-sm-3 admin-header'>
               <input  className='form-control cat-search'
                       name='searchValue'
                       placeholder= 'S E A R C H'
@@ -74,49 +95,8 @@ class PraisePage extends React.Component {
 
 
             <div className='table-div' >
-            <Table striped className='table-rows'>
-                  <thead>
-                    <tr>
-                      <th># </th>
-                      <th>TITLE </th>
-                      <th>ORIGIN </th>
-                      <th>TEMPO</th>
-                      <th>MESSAGE</th>
-                      <th>LINKS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {this.state.songs.map((song) => {
-                    if (!this.state.searchValue){
-                      return (
-                        <tr key={song.title}>
-                          <td>{song.id}</td>
-                          <td><Link to={"/details/"+song.title}>{song.title}</Link></td>
-                          <td>{song.origin}</td>
-                          <td className="center">{song.tempo}</td>
-                          <td>{song.message}</td>
-                          <td className="center">{"None"}</td>
-                        </tr>
-                      )
-                  } else {
-                    if(song.title.includes(this.state.searchValue.toUpperCase()) || song.origin.includes(this.state.searchValue.toUpperCase()) || song.message.includes(this.state.searchValue.toUpperCase()) || song.tempo.includes(this.state.searchValue.toUpperCase())){
-                      return (
-                        <tr key={song.title}>
-                          <td>{song.id}</td>
-                          <td><Link to={"/details/"+song.title}>{song.title}</Link></td>
-                          <td>{song.origin}</td>
-                          <td className="center">{song.tempo}</td>
-                          <td>{song.message}</td>
-                          <td className="center">{"None"}</td>
-                        </tr>
-                      )
-                    }
+            <SearchTable songs={this.state.searchValue? this.state.searchedSongs : this.state.songs} category="PRAISE"/>
 
-                  }
-                  }
-                  )}
-                  </tbody>
-            </Table>
             </div>
 
             </form>

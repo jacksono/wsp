@@ -7,7 +7,6 @@ import {withRouter} from 'react-router';
 
 const SearchTable = (props) => {
     let dataArray = [];
-    console.log("table", props)
     const columns = [
       {
       id: '#',
@@ -27,7 +26,8 @@ const SearchTable = (props) => {
         id: 'cat',
         Header: 'CATEGORY',
         accessor: d => d.category,
-        maxWidth: 100
+        maxWidth: 100,
+        show: !props.category
       },
       {
       id: 'origin',
@@ -37,7 +37,7 @@ const SearchTable = (props) => {
       },
       {
         id: 'lang',
-        Header: 'LANG',
+        Header: 'LANGUAGE',
         accessor: d => d.language,
         maxWidth: 80,
         className:'center'
@@ -76,7 +76,7 @@ const SearchTable = (props) => {
                 pageSize= {props.songs.length > 15 ? 15 : props.songs.length}
                 columns={columns}
                 showPageSizeOptions={false}
-                filterable
+                filterable={props.category ? false : true}
                 getTdProps={(state, rowInfo, column, instance) => {
                   return {
                     onClick: (e, handleOriginal) => {
@@ -97,6 +97,7 @@ const SearchTable = (props) => {
                 }}
               />
               </div>
+              {!props.category &&
               <div className='form-group  table-btn-pos'>
                 <div className='col-sm-3'>
                   <input className='btn btn-success form-control'
@@ -109,6 +110,7 @@ const SearchTable = (props) => {
                 </div>
 
             </div>
+            }
           </div>
         </div>
 
