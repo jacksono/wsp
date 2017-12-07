@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactTable from 'react-table';
 import "react-table/react-table.css";
+import {withRouter} from 'react-router';
 
 
 
 const SearchTable = (props) => {
     let dataArray = [];
+    console.log("table", props)
     const columns = [
       {
       id: '#',
@@ -64,21 +66,33 @@ const SearchTable = (props) => {
               <ReactTable
                 className="-striped -highlight"
                 data={props.songs}
-                pageSize= {15}
+                pageSize= {props.songs.length > 15 ? 15 : props.songs.length}
                 columns={columns}
                 showPageSizeOptions={false}
                 filterable
+                getTdProps={(state, rowInfo, column, instance) => {
+                  return {
+                    onClick: (e, handleOriginal) => {
+                      if(rowInfo){
+                        props.router.push('/details/'+rowInfo.row.title);
+                        if (handleOriginal) {
+                          handleOriginal()
+                        }
+                      }
+                    }
+                  }
+                }}
               />
               </div>
-              <div className='form-group'>
+              <div className='form-group  table-btn-pos'>
                 <div className='col-sm-3'>
-                <input className='btn btn-success form-control'
-                        name='edit'
-                        type='button'
-                        value='SEARCH'
-                        onClick={(e) => {e.preventDefault()
-                                      props.toggle()}}
-                    />
+                  <input className='btn btn-success form-control'
+                          name='edit'
+                          type='button'
+                          value='BACK TO SEARCH'
+                          onClick={(e) => {e.preventDefault()
+                                        props.toggle()}}
+                      />
                 </div>
 
             </div>
@@ -88,4 +102,4 @@ const SearchTable = (props) => {
       </div>
     );
 }
-export default SearchTable;
+export default withRouter(SearchTable);

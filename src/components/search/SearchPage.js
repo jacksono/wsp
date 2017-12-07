@@ -14,9 +14,12 @@ class SearchPage extends React.Component {
       toggleSearch: true,
       toggleResults: false,
       songs: [],
+      searchedSongs: []
 
     };
-    this.toggle = this.toggle.bind(this)
+    this.handleSearch = this.handleSearch.bind(this)
+    this.toggleForm = this.toggleForm.bind(this)
+    this.toggleTable = this.toggleTable.bind(this)
   }
 
   componentDidMount(){
@@ -25,12 +28,33 @@ class SearchPage extends React.Component {
       this.setState({songs: response})
       }).catch(error => (error));
     }
-  toggle(){
-    this.setState({toggleSearch: !this.state.toggleSearch,
-      toggleResults: !this.state.toggleResults})
+  handleSearch(object){
+      let songData = []
+    console.log("from page", object)
+    this.state.songs.map((song) => {
+      if(song.title.includes(object.title.toUpperCase()) &&
+      song.origin.includes(object.origin.toUpperCase()) &&
+      song.message.includes(object.message.toUpperCase()) &&
+      song.category.includes(object.category.toUpperCase()) &&
+      song.language.includes(object.language.toUpperCase()) &&
+      song.tempo.includes(object.tempo.toUpperCase())){
+      songData.push(song)
+      }
+    })
+    this.setState({searchedSongs: songData})
     }
 
+    toggleForm(){
+      this.setState({toggleSearch: false,
+        toggleResults: true})
+      }
+    toggleTable(){
+      this.setState({toggleSearch: true,
+        toggleResults: false})
+      }
+
   render() {
+    console.log("songs", this.state)
     return (
         <div>
         <form className='form-horizontal'>
@@ -46,11 +70,11 @@ class SearchPage extends React.Component {
             />
 
             <Collapsible open={this.state.toggleSearch} trigger="SEARCH CRITERIA" triggerOpenedClassName="CustomTriggerCSS--open">
-              <SearchForm toggle={this.toggle} />
+              <SearchForm searched={this.handleSearch} toggle={this.toggleForm} />
             </Collapsible>
 
             <Collapsible open={this.state.toggleResults} trigger="SEARCH RESULTS" triggerOpenedClassName="CustomTriggerCSS--open" className="searchtable">
-              <SearchTable songs={this.state.songs} toggle={this.toggle} />
+              <SearchTable songs={this.state.searchedSongs?this.state.searchedSongs:this.state.songs} toggle={this.toggleTable} />
             </Collapsible>
 
             </div>

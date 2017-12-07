@@ -336,3 +336,8 @@ a{
 .left {
   text-align: left !important;
 }
+.table-btn-pos{
+  margin-top: 10px;
+  position: relative;
+  left: 39%;
+}

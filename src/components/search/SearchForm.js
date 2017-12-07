@@ -27,7 +27,7 @@ export default class SearchForm extends React.Component {
   }
 
   handleClear(e){
-    e.preventDefault();
+    if(e){e.preventDefault();}
     this.setState({
       title: '',
       category: '',
@@ -41,8 +41,11 @@ export default class SearchForm extends React.Component {
   }
   handleSearch(e){
     e.preventDefault();
+    this.props.searched(this.state)
     this.props.toggle()
+    this.handleClear()
   }
+
 
   render() {
     return (
