@@ -75,7 +75,7 @@ class S2gPage extends React.Component {
                           <td>{song.id}</td>
                           <td>{song.title}</td>
                           <td className="">{song.tempo}</td>
-                          <td>{song.album}</td>
+                          <td>{song.message}</td>
                           <td className=""><Link to={"/lyrics/"+song.title}>{"Lyrics"}</Link></td>
                         </tr>
                       )

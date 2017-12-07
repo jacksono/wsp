@@ -41,7 +41,7 @@ class DetailsPage extends React.Component {
   }
 
   fetchSongDetails(){
-    apiCall(null, 'get', 'song/'+this.props.params.song)
+    apiCall(null, 'get', 'song/'+this.props.params.category + '/' + this.props.params.song)
     .then((s) => {
           this.setState({song: s,
                         title: s.title,
@@ -77,7 +77,7 @@ class DetailsPage extends React.Component {
       message: this.state.message.toUpperCase(),
       category: this.state.category.toUpperCase()
     }
-    apiCall(editValues, 'put', this.props.params.song)
+    apiCall(editValues, 'put', editValues.category + '/' + this.props.params.song)
     .then((response) => {
         toastr.success("Changes Saved Successfully")
         this.setState({updated: response.updated})

@@ -51,11 +51,18 @@ const SearchTable = (props) => {
       },
       {
       id: 'msg',
-      Header: 'MESSAGE',
+      Header: 'MESSAGE/ALBUM',
       accessor: d => d.message,
       maxWidth: 200,
       headerClassName: 'left'
       },
+      {
+      id: 'links',
+      Header: 'LINKS',
+      accessor: d => d.lyrics === "True" ? "LYRICS" : "NONE",
+      maxWidth: 70,
+      className:'center'
+      }
           ];
 
     return (
@@ -74,9 +81,15 @@ const SearchTable = (props) => {
                   return {
                     onClick: (e, handleOriginal) => {
                       if(rowInfo){
-                        props.router.push('/details/'+rowInfo.row.title);
-                        if (handleOriginal) {
-                          handleOriginal()
+                        if((rowInfo.row.links === "LYRICS") && (column.Header === "LINKS")){
+                          props.router.push("/lyrics/"+rowInfo.row.title)
+                        }
+                        else{
+                          console.log("uhbhbkj",rowInfo)
+                          props.router.push('/details/'+rowInfo.row.cat+"/"+rowInfo.row.title);
+                          if (handleOriginal) {
+                            handleOriginal()
+                          }
                         }
                       }
                     }

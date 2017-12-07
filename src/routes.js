@@ -21,7 +21,7 @@ export default (
       <Route path="/worship" component={WorshipPage} />
       <Route path="/others" component={OthersPage} />
       <Route path="/s2g" component={S2gPage} />
-      <Route path="/details/:song" component={DetailsPage} />
+      <Route path="/details/:category/:song" component={DetailsPage} />
       <Route path="/lyrics/:song" component={LyricsPage} />
       <Route path="/admin" component={Search} />
       <Route path="/add/:category" component={AddPage} />
