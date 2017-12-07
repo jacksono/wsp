@@ -25,8 +25,8 @@ a.active {
   margin-bottom: -10px;
   height: 25px;
   width: 950px;
-  /*background: linear-gradient(to right, #FBB040 20%, #A31F24 80%);*/
-  background-color: #fbb040;
+  background: linear-gradient(to right, #FBB040 20%, #A31F24 80%);
+  /*background-color: #fbb040;*/
   border-radius: 8px;
 }
 
