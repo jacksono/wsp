@@ -1,6 +1,7 @@
 
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
+import toastr from 'toastr';
 
 export default class Dashboard extends React.Component {
   render() {
@@ -48,12 +49,12 @@ export default class Dashboard extends React.Component {
 
             <div className='form-group'>
               <div className=' category col-sm-5'>
-              <Link to ="/others">
+              <Link to ="/">
                   <input className='btn-home form-control'
                          name='other'
                          type='button'
                          value='A.O.B'
-                         onClick=''
+                         onClick={() => { toastr.info("This button is not yet active")}}
                   />
                   </Link>
               </div>

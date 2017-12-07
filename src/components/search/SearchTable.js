@@ -77,6 +77,7 @@ const SearchTable = (props) => {
                 pageSize= {props.songs.length > 15 ? 15 : props.songs.length}
                 columns={columns}
                 showPageSizeOptions={false}
+                loading={props.songs ? false : true}
                 filterable={props.category ? false : true}
                 getTdProps={(state, rowInfo, column, instance) => {
                   return {

@@ -63,7 +63,8 @@ class AddPage extends React.Component {
       language: this.state.language.toUpperCase(),
       tempo: this.state.tempo.toUpperCase(),
       message: this.state.message.toUpperCase(),
-      category: this.state.category.toUpperCase()
+      category: this.state.category.toUpperCase(),
+      comment: this.state.comment.toUpperCase()
     }
     if(!editValues.title){
       this.setState({errorTitle: true})

@@ -13,6 +13,7 @@ import LyricsPage from './components/lyrics/LyricsPage'
 import Dashboard from './components/home/Dashboard'
 import SearchPage from './components/search/SearchPage'
 
+
 export default (
     <Route path="/" component={App}>
       <IndexRoute component={Dashboard} />

@@ -50,6 +50,7 @@ class DetailsPage extends React.Component {
                         message: s.message,
                         language: s.language,
                         tempo: s.tempo,
+                        comment: s.comment,
                         created: s.created,
                         updated: s.updated
                         })
@@ -75,7 +76,8 @@ class DetailsPage extends React.Component {
       language: this.state.language.toUpperCase(),
       tempo: this.state.tempo.toUpperCase(),
       message: this.state.message.toUpperCase(),
-      category: this.state.category.toUpperCase()
+      category: this.state.category.toUpperCase(),
+      comment: this.state.comment.toUpperCase()
     }
     apiCall(editValues, 'put', editValues.category + '/' + this.props.params.song)
     .then((response) => {
