@@ -362,3 +362,9 @@ a{
   font-weight: bold;
   font-size: 17px;
 }
+a {
+  color: white !important
+}
+a:hover {
+  color: #575170 !important
+}
