@@ -20,6 +20,15 @@ a.active {
   background-color: #fbb040;
   border-radius: 8px;
 }
+.jumbo-foot{
+  margin-left: 20px;
+  margin-bottom: -10px;
+  height: 25px;
+  width: 950px;
+  /*background: linear-gradient(to right, #FBB040 20%, #A31F24 80%);*/
+  background-color: #fbb040;
+  border-radius: 8px;
+}
 
 .header{
   color: #FDFEFE;
@@ -44,6 +53,10 @@ float:right;
 .img{
 padding-left: 10px;
 float:left;
+}
+.img-foot{
+padding-right: 10px;
+float:right;
 }
 .btn-img{
 margin-left: 20px;
@@ -342,4 +355,10 @@ a{
   margin-top: 10px;
   position: relative;
   left: 39%;
+}
+.nav{
+  text-align: center;
+  padding-top: 2px;
+  font-weight: bold;
+  font-size: 17px;
 }
