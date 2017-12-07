@@ -86,7 +86,6 @@ const SearchTable = (props) => {
                           props.router.push("/lyrics/"+rowInfo.row.title)
                         }
                         else{
-                          console.log("uhbhbkj",rowInfo)
                           props.router.push('/details/'+rowInfo.row.cat+"/"+rowInfo.row.title);
                           if (handleOriginal) {
                             handleOriginal()
