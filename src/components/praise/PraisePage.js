@@ -95,7 +95,7 @@ class PraisePage extends React.Component {
 
 
             <div className='table-div' >
-            <SearchTable songs={this.state.searchValue? this.state.searchedSongs : this.state.songs} category="PRAISE"/>
+            <SearchTable songs={this.state.searchValue? this.state.searchedSongs : this.state.songs} category="DEFINED"/>
 
             </div>
 

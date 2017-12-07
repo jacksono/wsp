@@ -27,7 +27,7 @@ const SearchTable = (props) => {
         Header: 'CATEGORY',
         accessor: d => d.category,
         maxWidth: 100,
-        show: !props.category
+        show: props.category !== "DEFINED"
       },
       {
       id: 'origin',

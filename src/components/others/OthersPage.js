@@ -1,16 +1,19 @@
 
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
+import {Link, IndexLink, withRouter} from 'react-router';
 import { Table } from 'reactstrap';
 import apiCall from '../apiHelper';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon'
+import SearchTable from '../search/SearchTable'
 
-export default class OthersPage extends React.Component {
+
+class OthersPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchValue: '',
-      songs: []
-
+      songs: [],
+      searchedSongs: []
     };
 
     this.search = this.search.bind(this);
@@ -25,81 +28,75 @@ export default class OthersPage extends React.Component {
 
   search(event) {
     const { name, value } = event.target;
+    let songsSearched = []
     event.preventDefault();
     this.setState({
       [name]: value,
     })
+    this.state.songs.map((song) => {
+      if(song.title.includes(this.state.searchValue.toUpperCase()) ||
+      song.origin.includes(this.state.searchValue.toUpperCase()) ||
+      song.message.includes(this.state.searchValue.toUpperCase()) ||
+      song.tempo.includes(this.state.searchValue.toUpperCase())){
+        songsSearched.push(song)
+      }
+    })
+    this.setState({searchedSongs : songsSearched})
   }
+
   render() {
     return (
         <div>
         <form className='form-horizontal'>
             <div className='form-group'>
-            <Link to ="/home" className="btn-img" >
+            <Link  to='' onClick={this.props.router.goBack} className="btn-img" >
                 <img src={require('../common/backbtn.png') } width="60" height="70"/>
-            </Link>
-              <header className="category-header">
-                <p className='title'>OTHERS </p>
-              </header>
-
-              <div className='col-sm-5 admin-header'>
-                  <input  className='form-control cat-search'
-                          name='searchValue'
-                          placeholder= 'S E A R C H'
-                          type='text'
-                          value = {this.state.searchValue}
-                          onChange = {this.search}
-                  />
+              </Link>
+              <input  className='category-header title'
+                      name='title'
+                      type='text'
+                      value={"OTHERS SONG LIST"}
+                      disabled
+              />
+              <div className='form-group'>
+              <div className='admin-header col-sm-3'>
+                  <button type=''
+                       name='update'
+                       onClick= {(e)=>{
+                         e.preventDefault()
+                         this.props.router.push('/add/PRAISE')}}
+                       className='btn btn-default form-control add'>
+                       ADD A NEW SONG
+                  </button>
               </div>
 
-            </div>
-            <div className='table-div' >
-            <Table striped className='table-rows'>
-                  <thead>
-                    <tr>
-                    <th># </th>
-                      <th>TITLE </th>
-                      <th>ORIGIN </th>
-                      <th>TEMPO </th>
-                      <th>CATEGORY </th>
-                      <th>MESSAGE</th>
-                      <th>LINKS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {this.state.songs.map((song) => {
-                    if (!this.state.searchValue){
-                      return (
-                        <tr key={song.title}>
-                          <td>{song.id}</td>
-                          <td>{song.title}</td>
-                          <td>{song.origin}</td>
-                          <td className="center">{song.tempo}</td>
-                          <td>{song.category}</td>
-                          <td>{song.message}</td>
-                          <td className="center">{"None"}</td>
-                        </tr>
-                      )
-                  } else {
-                    if(song.title.includes(this.state.searchValue.toUpperCase()) || song.origin.includes(this.state.searchValue.toUpperCase()) || song.message.includes(this.state.searchValue.toUpperCase()) || song.tempo.includes(this.state.searchValue.toUpperCase())){
-                      return (
-                        <tr key={song.title}>
-                          <td>{song.id}</td>
-                          <td>{song.title}</td>
-                          <td>{song.origin}</td>
-                          <td className="center">{song.tempo}</td>
-                          <td>{song.category}</td>
-                          <td>{song.message}</td>
-                          <td className="center">{"None"}</td>
-                        </tr>
-                      )
-                    }
+              <div className='admin-header col-sm-3'>
+                  <button type=''
+                       name='update'
+                       onClick= {(e)=>{
+                         e.preventDefault()
+                         this.props.router.push('/categories')}}
+                       className='btn btn-default form-control'>
+                       OTHER CATEGORIES
+                  </button>
+              </div>
 
-                  }
-                  }
-                  )}
-                  </tbody>
-            </Table>
+              <div className='col-sm-3 admin-header'>
+              <input  className='form-control cat-search'
+                      name='searchValue'
+                      placeholder= 'S E A R C H'
+                      type='text'
+                      value = {this.state.searchValue}
+                      onChange = {this.search}
+              />
+              </div>
+              </div>
+              </div>
+
+
+            <div className='table-div' >
+            <SearchTable songs={this.state.searchValue? this.state.searchedSongs : this.state.songs} category="OTHERS"/>
+
             </div>
 
             </form>
@@ -107,3 +104,4 @@ export default class OthersPage extends React.Component {
     );
   }
 }
+export default withRouter(OthersPage)
