@@ -155,7 +155,11 @@ class DetailsPage extends React.Component {
                 <div className='col-sm-3 btn-link'>
                     <button type='submit'
                          name='update'
-                         className='btn btn-success form-control'>
+                         className='btn btn-success form-control'
+                         onClick = {(e) => {
+                           e.preventDefault()
+                           toastr.info("This action is not yet active ")
+                         }}>
                          ADD DATE
                     </button>
                 </div>
@@ -178,14 +182,6 @@ class DetailsPage extends React.Component {
                         ))
                       }
                     </select>
-                </div>
-
-                <div className='col-sm-3 btn-link'>
-                    <button type='submit'
-                         name='update'
-                         className='btn btn-success form-control'>
-                         ADD LINK
-                    </button>
                 </div>
               </div>
 
@@ -218,6 +214,18 @@ class DetailsPage extends React.Component {
                         ))
                       }
                     </select>
+                </div>
+
+                <div className='col-sm-3 btn-link'>
+                    <button type='submit'
+                         name='update'
+                         className='btn btn-success form-control'
+                         onClick = {(e) => {
+                           e.preventDefault()
+                           toastr.info("This action is not yet active ")
+                         }}>
+                         ADD LINK
+                    </button>
                 </div>
               </div>
 
