@@ -53,7 +53,7 @@ export default class Dashboard extends React.Component {
                   <input className='btn-home form-control'
                          name='other'
                          type='button'
-                         value='A.O.B'
+                         value='EXTRAS'
                          onClick={() => { toastr.info("This button is not yet active")}}
                   />
                   </Link>

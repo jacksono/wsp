@@ -134,7 +134,7 @@ class DetailsPage extends React.Component {
                       disabled={!this.state.editable}
                     >
                       {
-                        ["...", "PRAISE", "WORSHIP", "STG", "OTHER"].map(option => (
+                        ["...", "PRAISE", "WORSHIP", "STG", 'XMAS',"OTHER"].map(option => (
                           <option key={option} value={option}>{option}</option>
                         ))
                       }

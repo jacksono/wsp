@@ -237,7 +237,7 @@ class AddPage extends React.Component {
                       style={{ width: '365px' }}
                     >
                       {
-                        ["...", "ENGLISH", "LUGANDA", "SWAHILI", "OTHER"].map(option => (
+                        ["...", "ENG", "LUG", "SWA", "OTHER"].map(option => (
                           <option key={option} value={option}>{option}</option>
                         ))
                       }
