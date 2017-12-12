@@ -33,6 +33,7 @@ class DetailsPage extends React.Component {
   this.handleEdit = this.handleEdit.bind(this);
   this.handleSave = this.handleSave.bind(this);
   this.handleCancel = this.handleCancel.bind(this);
+  this.handleAddLink = this.handleAddLink.bind(this);
   this.fetchSongDetails = this.fetchSongDetails.bind(this);
   }
 
@@ -52,13 +53,21 @@ class DetailsPage extends React.Component {
                         tempo: s.tempo,
                         comment: s.comment,
                         created: s.created,
-                        updated: s.updated
+                        updated: s.updated,
+                        errorCategory: false,
+                        errorTitle: false
                         })
       }).catch(error => (error));
   }
   handleChange(event) {
     const { name, value } = event.target;
     event.preventDefault();
+    if(name === 'title'){
+      this.setState({errorTitle: false})
+    }
+    if(name === 'category'){
+      this.setState({errorCategory: false})
+    }
     this.setState({
       [name]: value,
     })
@@ -70,6 +79,7 @@ class DetailsPage extends React.Component {
   }
   handleSave(e){
     e.preventDefault()
+    let error = false
     let editValues = {
       title: this.state.title.toUpperCase(),
       origin: this.state.origin.toUpperCase(),
@@ -79,18 +89,41 @@ class DetailsPage extends React.Component {
       category: this.state.category.toUpperCase(),
       comment: this.state.comment.toUpperCase()
     }
-    apiCall(editValues, 'put', editValues.category + '/' + this.props.params.song)
-    .then((response) => {
-        toastr.success("Changes Saved Successfully")
-        this.setState({updated: response.updated})
-      }).catch(error => (error));
-    this.setState({editable: false})
+    if(!editValues.title){
+      this.setState({errorTitle: true})
+      error = true
+    }
+    if(!editValues.category || editValues.category === "..."){
+      this.setState({errorCategory: true})
+      error = true
+    }
+    if(!error){
+      apiCall(editValues, 'put', editValues.category + '/' + this.props.params.song)
+      .then((response) => {
+          toastr.success("Changes Saved Successfully")
+          this.setState({updated: response.updated})
+        }).catch(error => (error));
+      this.setState({editable: false})
+    }
+    else{
+      toastr.error("ERROR WHILE UPDATING")
+    }
   }
   handleCancel(e){
     e.preventDefault();
     this.fetchSongDetails();
-    this.setState({editable: false})
+    this.setState({editable: false,
+                    errorTitle: '',
+                    errorCategory: ''})
 
+  }
+
+  handleAddLink(e){
+    e.preventDefault()
+    if(this.state.editable){
+      toastr.error("First click Save Changes to update the Song Details or Cancel to revert")
+    }
+    else{this.props.router.push('/links/'+this.state.title)}
   }
   render() {
     return (
@@ -109,7 +142,7 @@ class DetailsPage extends React.Component {
             </div>
 
             <div className='table-div' >
-              <div className='form-group'>
+              <div className={'form-group ' + (this.state.errorTitle ? "has-error" : '')}>
                 <label className='control-label col-sm-2 admin-label'> TITLE: </label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
@@ -120,9 +153,14 @@ class DetailsPage extends React.Component {
                             disabled={!this.state.editable}
                     />
                 </div>
+                {this.state.errorTitle &&
+                <div className='input-error'>
+                    {"Please fill in a Title"}
+                  </div>
+                }
               </div>
 
-              <div className='form-group'>
+              <div className={'form-group ' + (this.state.errorCategory ? "has-error" : '' )}>
                 <label className='control-label col-sm-2 admin-label'> CATEGORY: </label>
                 <div className='col-sm-5'>
                     <select
@@ -140,6 +178,11 @@ class DetailsPage extends React.Component {
                       }
                     </select>
                 </div>
+                {this.state.errorCategory &&
+                <div className='input-error'>
+                    {"Please select Category"}
+                  </div>
+                }
               </div>
 
               <div className='form-group'>
@@ -222,10 +265,7 @@ class DetailsPage extends React.Component {
                     <button type='submit'
                          name='update'
                          className='btn btn-success form-control'
-                         onClick = {(e) => {
-                           e.preventDefault()
-                           toastr.info("This action is not yet active ")
-                         }}>
+                         onClick={this.handleAddLink}>
                          ADD LINK
                     </button>
                 </div>

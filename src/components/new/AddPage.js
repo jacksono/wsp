@@ -26,13 +26,14 @@ class AddPage extends React.Component {
       comment: '',
       song: {},
       errorTitle: false,
-      errorCategory:false
+      errorCategory:false,
+      saveClicked: false,
 
     };
   this.handleChange = this.handleChange.bind(this);
-  this.handleEdit = this.handleEdit.bind(this);
   this.handleSave = this.handleSave.bind(this);
   this.handleClear = this.handleClear.bind(this);
+  this.handleAddLink = this.handleAddLink.bind(this);
   }
 
 
@@ -50,9 +51,6 @@ class AddPage extends React.Component {
     })
   }
 
-  handleEdit(e){
-    e.preventDefault()
-  }
   handleSave(e){
     e.preventDefault()
     this.setState({error:false})
@@ -78,6 +76,7 @@ class AddPage extends React.Component {
       apiCall(editValues, 'post', 'add/')
       .then((response) => {
           toastr.success("Saved successfully")
+          this.setState({saveClicked: true})
         }).catch(error => (error));
       this.props.router.push('/details/'+editValues.category+"/"+editValues.title);
     }
@@ -99,6 +98,14 @@ class AddPage extends React.Component {
       error: false
 
     })
+  }
+
+  handleAddLink(e){
+    e.preventDefault();
+    if(!this.saveClicked){
+      toastr.error("First click Save to add the Song Details")
+    }
+
   }
   render() {
     return (
@@ -147,7 +154,7 @@ class AddPage extends React.Component {
                       disabled={this.props.params.category === ' ' ? false : true}
                     >
                       {
-                        ["...", "PRAISE", "WORSHIP", "STG", "OTHER"].map(option => (
+                        ["...", "PRAISE", "WORSHIP", "STG", 'XMAS', "OTHER"].map(option => (
                           <option key={option} value={option}>{option}</option>
                         ))
                       }
@@ -155,7 +162,7 @@ class AddPage extends React.Component {
                 </div>
                 {this.state.errorCategory &&
                 <div className='input-error'>
-                    {"Please fill in a category"}
+                    {"Please select Category"}
                   </div>
                 }
               </div>
@@ -206,10 +213,7 @@ class AddPage extends React.Component {
                     <button
                          name='update'
                          className='btn btn-success form-control'
-                         onClick = {(e) => {
-                           e.preventDefault()
-                           toastr.info("This action is not yet active ")
-                         }}>
+                         onClick = {this.handleAddLink}>
                          ADD LINK
                     </button>
                 </div>

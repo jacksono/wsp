@@ -29,7 +29,7 @@ export default (
       <Route path="/add/:category" component={AddPage} />
       <Route path="/categories" component={CategoriesPage} />
       <Route path="/search" component={SearchPage} />
-      <Route path="/links" component={LinksPage} />
+      <Route path="/links/:song" component={LinksPage} />
       <Route path="*" component={Dashboard} />
     </Route>
   );

@@ -107,7 +107,7 @@ class LinksPage extends React.Component {
           {this.state.clicked &&
               <div className=' forn-group table-div'>
               <div>
-              <p className='lyrics-head'>Lyrics for SONG </p>
+              <p className='lyrics-head'>Lyrics for {this.props.params.song} </p>
               <textarea value={this.state.lyrics}
                         name='lyrics'
                         placeholder="Start typing here"
