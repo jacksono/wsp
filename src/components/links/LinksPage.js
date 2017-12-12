@@ -26,7 +26,9 @@ class LinksPage extends React.Component {
 
   handleSave(e){
     e.preventDefault()
+    let payload = { lyrics:this.state.lyrics.replace(/\n/g, "%%") }
     this.props.router.push('/lyrics/'+this.props.params.song+"/"+this.state.lyrics);
+    apiCall(payload, 'post', 'lyrics/'+this.props.params.song)
     toastr.success("Lyrics Saved Successfully")
   }
 
