@@ -14,10 +14,15 @@ class LyricsPage extends React.Component {
   }
 
   componentWillMount(){
+    if(this.props.params.lyrics !== ' '){
+      this.setState({lyrics: this.props.params.lyrics.replace(/\n/g, "%%")})
+    }
+    else{
     apiCall(null, 'get', 'lyrics/'+this.props.params.song)
     .then((response) => {
         this.setState({lyrics:response.lyrics})
       }).catch(error => (error));
+    }
   }
 
   render() {

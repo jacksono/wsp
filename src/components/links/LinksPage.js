@@ -26,11 +26,12 @@ class LinksPage extends React.Component {
 
   handleSave(e){
     e.preventDefault()
+    this.props.router.push('/lyrics/'+this.props.params.song+"/"+this.state.lyrics);
     toastr.success("Lyrics Saved Successfully")
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state.lyrics.replace(/\n/g, "%%"))
     return (
         <div>
         <form className='form-horizontal'>
@@ -44,8 +45,9 @@ class LinksPage extends React.Component {
                       value={"LINKS PAGE"}
                       disabled
               />
+            <div className=''>
             {!this.state.clicked &&
-            <div className='form-group'>
+            <div className='form-group '>
               <div className='admin-header col-sm-3'>
                   <button  name='update'
                            onClick= {() => {this.setState({clicked: true})}}
@@ -79,6 +81,7 @@ class LinksPage extends React.Component {
               </div>
             </div>
             }
+            </div>
             {this.state.clicked &&
             <div className='form-group lyrics-btn-group'>
               <div className='admin-header col-sm-3'>
