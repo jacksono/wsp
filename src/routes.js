@@ -12,6 +12,7 @@ import DetailsPage from './components/details/DetailsPage'
 import LyricsPage from './components/lyrics/LyricsPage'
 import Dashboard from './components/home/Dashboard'
 import SearchPage from './components/search/SearchPage'
+import LinksPage from './components/links/LinksPage'
 
 
 export default (
@@ -28,6 +29,7 @@ export default (
       <Route path="/add/:category" component={AddPage} />
       <Route path="/categories" component={CategoriesPage} />
       <Route path="/search" component={SearchPage} />
+      <Route path="/links" component={LinksPage} />
       <Route path="*" component={Dashboard} />
     </Route>
   );

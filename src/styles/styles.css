@@ -368,3 +368,16 @@ a {
 a:hover {
   color: #575170 !important
 }
+.video{
+    margin-left: 70px;
+}
+.audio{
+    margin-left: -20px;
+}
+.lyrics-head{
+    margin-left: 230px;
+    font-size: 18px;
+}
+.lyrics-btn-group{
+    margin-left: 230px !important;
+}
