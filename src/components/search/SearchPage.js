@@ -30,7 +30,6 @@ class SearchPage extends React.Component {
     }
   handleSearch(object){
       let songData = []
-    console.log("from page", object)
     this.state.songs.map((song) => {
       if(song.title.includes(object.title.toUpperCase()) &&
       song.origin.includes(object.origin.toUpperCase()) &&
@@ -54,7 +53,6 @@ class SearchPage extends React.Component {
       }
 
   render() {
-    console.log("songs", this.state)
     return (
         <div>
         <form className='form-horizontal'>

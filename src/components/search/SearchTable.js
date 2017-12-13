@@ -84,7 +84,7 @@ const SearchTable = (props) => {
                     onClick: (e, handleOriginal) => {
                       if(rowInfo){
                         if((rowInfo.row.links === "LYRICS") && (column.Header === "LINKS")){
-                          props.router.push("/lyrics/"+rowInfo.row.title+"/ ")
+                          props.router.push("/lyrics/"+[rowInfo.row.title,rowInfo.row.cat] +"/ ")
                         }
                         else{
                           props.router.push('/details/'+rowInfo.row.cat+"/"+rowInfo.row.title);

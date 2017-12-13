@@ -30,6 +30,10 @@ class LinksPage extends React.Component {
     this.props.router.push('/lyrics/'+this.props.params.song+"/"+this.state.lyrics);
     apiCall(payload, 'post', 'lyrics/'+this.props.params.song)
     toastr.success("Lyrics Saved Successfully")
+    apiCall({title: this.props.params.song, lyrics: "True"}, 'put', "praise" + '/' + this.props.params.song)
+    .then((response) => {
+        toastr.success("Changes Saved Successfully")
+      })
   }
 
   render() {

@@ -381,3 +381,9 @@ a:hover {
 .lyrics-btn-group{
     margin-left: 230px !important;
 }
+.lyric-title{
+  color: blue;
+}
+.lyric-title:hover{
+  color: white;
+}

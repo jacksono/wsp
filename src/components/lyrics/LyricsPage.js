@@ -9,7 +9,8 @@ class LyricsPage extends React.Component {
     super(props);
     this.state = {
       lyrics: '',
-      title: ''
+      title: '',
+      category: ''
     };
   }
 
@@ -18,11 +19,14 @@ class LyricsPage extends React.Component {
       this.setState({lyrics: this.props.params.lyrics.replace(/\n/g, "%%")})
     }
     else{
-    apiCall(null, 'get', 'lyrics/'+this.props.params.song)
+    apiCall(null, 'get', 'lyrics/'+this.props.params.song.split(',')[0])
     .then((response) => {
         this.setState({lyrics:response.lyrics})
       }).catch(error => (error));
     }
+    this.setState({title: this.props.params.song.split(',')[0],
+                  category: this.props.params.song.split(',')[1]})
+
   }
 
   render() {
@@ -43,7 +47,13 @@ class LyricsPage extends React.Component {
 
             <div className='table-div' >
             <div className="lyrics">
-            <p><strong><u> LYRICS FOR {this.props.params.song}</u></strong></p>
+            <p>
+              <strong>
+                <Link to={'/details/'+this.state.category+"/"+this.state.title}>
+                  <u className='lyric-title'>{this.state.title}</u>
+                </Link>
+              </strong>
+            </p>
             {this.state.lyrics.split("%%").map((line) =>
             <p>{line === "$$" ? <br/>: (line.includes("Chorus") || line.includes("Bridge") || line.includes("Verse") || line.includes("Climax")) ? <strong>{line}</strong> : line}</p>
 
