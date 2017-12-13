@@ -394,3 +394,9 @@ a:hover {
 .edit-lyric:hover{
   color: white !important;
 }
+
+.select-link:hover{
+  color: green !important;
+  font-size: 12px;
+  cursor: pointer;
+}

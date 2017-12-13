@@ -50,20 +50,25 @@ class LinksPage extends React.Component {
 
   handleSave(e){
     e.preventDefault()
-    let payload = { lyrics:this.state.lyrics.replace(/\n/g, "%%") }
-    if(this.state.hasLyrics !== "true"){
-      apiCall(payload, 'post', 'lyrics/'+this.state.title)
-      toastr.success("Lyrics Saved Successfully")
-      apiCall({title: this.state.title, lyrics: "True"}, 'put', this.state.category + '/' + this.state.title)
-      .then((response) => {
-          toastr.success("Lyrics link generated")
-        })
+    if(this.state.lyrics){
+      let payload = { lyrics:this.state.lyrics.replace(/\n/g, "%%") }
+      if(this.state.hasLyrics !== "true"){
+        apiCall(payload, 'post', 'lyrics/'+this.state.title)
+        toastr.success("Lyrics Saved Successfully")
+        apiCall({title: this.state.title, lyrics: "True"}, 'put', this.state.category + '/' + this.state.title)
+        .then((response) => {
+            toastr.success("Lyrics link generated")
+          })
+      }
+      else{
+        apiCall(payload, 'put', 'lyrics/'+this.state.title)
+        toastr.success("Lyrics Updated Successfully")
+      }
+      this.props.router.push('/lyrics/'+[this.state.title,this.state.category]+"/"+this.state.lyrics);
     }
     else{
-      apiCall(payload, 'put', 'lyrics/'+this.state.title)
-      toastr.success("Lyrics Updated Successfully")
+      toastr.error("No Lyrics entered")
     }
-    this.props.router.push('/lyrics/'+[this.state.title,this.state.category]+"/"+this.state.lyrics);
   }
 
   handleLyricsLink(e){

@@ -57,7 +57,14 @@ class LyricsPage extends React.Component {
               </div>
 
               <div className='admin-header col-sm-3 audio'>
-
+              <button  name='update'
+                       onClick= {(e) => {
+                         e.preventDefault();
+                         this.props.router.push('/links/'+[this.state.title, this.state.category, true])
+                       }}
+                       className='btn btn-success form-control'>
+                   Add another Link
+              </button>
               </div>
 
               <div className='admin-header col-sm-3'>

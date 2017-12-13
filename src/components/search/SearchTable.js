@@ -2,6 +2,7 @@ import React from 'react';
 import ReactTable from 'react-table';
 import "react-table/react-table.css";
 import {withRouter} from 'react-router';
+import toastr from 'toastr'
 
 
 
@@ -20,7 +21,8 @@ const SearchTable = (props) => {
       Header: 'TITLE',
       accessor: d => d.title,
       maxWidth: props.stg ? 600 :1000,
-      headerClassName: 'left'
+      headerClassName: 'left',
+      className:'select-link'
       },
       {
         id: 'cat',
@@ -60,9 +62,9 @@ const SearchTable = (props) => {
       {
       id: 'links',
       Header: 'LINKS',
-      accessor: d => d.lyrics === "True" ? "LYRICS" : "NONE",
-      maxWidth: 70,
-      className:'center'
+      accessor: d => d.lyrics === "True" ? "LYRICS" : "Add Link",
+      maxWidth: 100,
+      className:'center select-link'
       }
           ];
 
@@ -86,7 +88,11 @@ const SearchTable = (props) => {
                         if((rowInfo.row.links === "LYRICS") && (column.Header === "LINKS")){
                           props.router.push("/lyrics/"+[rowInfo.row.title,rowInfo.row.cat] +"/ ")
                         }
-                        else{
+                        else if((rowInfo.row.links === "Add Link") && (column.Header === "LINKS")){
+                          toastr.info("Add A Song Link")
+                          props.router.push('/links/'+[rowInfo.row.title, rowInfo.row.cat, false])
+                        }
+                        else if((column.Header === "TITLE")) {
                           props.router.push('/details/'+rowInfo.row.cat+"/"+rowInfo.row.title);
                           if (handleOriginal) {
                             handleOriginal()

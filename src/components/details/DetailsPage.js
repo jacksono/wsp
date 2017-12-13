@@ -132,6 +132,8 @@ class DetailsPage extends React.Component {
     else {
       if(this.state.lyrics === "True"){
         this.props.router.push('/links/'+[this.state.title, this.state.category, true])}
+      else{
+        this.props.router.push('/links/'+[this.state.title, this.state.category, false])}
       }
   }
 
@@ -165,7 +167,7 @@ class DetailsPage extends React.Component {
 
             <div className='table-div' >
               <div className={'form-group ' + (this.state.errorTitle ? "has-error" : '')}>
-                <label className='control-label col-sm-2 admin-label'> TITLE: </label>
+                <label className='control-label col-sm-2 admin-label'> TITLE*: </label>
                 <div className='col-sm-5'>
                     <input  className='form-control admin-input'
                             name='title'
@@ -183,7 +185,7 @@ class DetailsPage extends React.Component {
               </div>
 
               <div className={'form-group ' + (this.state.errorCategory ? "has-error" : '' )}>
-                <label className='control-label col-sm-2 admin-label'> CATEGORY: </label>
+                <label className='control-label col-sm-2 admin-label'> CATEGORY*: </label>
                 <div className='col-sm-5'>
                     <select
                       className="form-control admin-input"
