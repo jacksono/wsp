@@ -387,3 +387,10 @@ a:hover {
 .lyric-title:hover{
   color: white;
 }
+.edit-lyric{
+  color: black !important;
+  margin-right: 5px
+}
+.edit-lyric:hover{
+  color: white !important;
+}

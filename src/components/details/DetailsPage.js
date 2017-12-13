@@ -129,7 +129,10 @@ class DetailsPage extends React.Component {
     if(this.state.editable){
       toastr.error("First click Save Changes to update the Song Details or Cancel to revert")
     }
-    else{this.props.router.push('/links/'+this.state.title)}
+    else {
+      if(this.state.lyrics === "True"){
+        this.props.router.push('/links/'+[this.state.title, this.state.category, true])}
+      }
   }
 
   handleLyrics(e){

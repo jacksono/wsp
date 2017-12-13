@@ -7,7 +7,7 @@ import Glyphicon from 'react-bootstrap/lib/Glyphicon'
 import SearchTable from '../search/SearchTable'
 
 
-class S2gPage extends React.Component {
+class StgPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -104,4 +104,4 @@ class S2gPage extends React.Component {
     );
   }
 }
-export default withRouter(S2gPage)
+export default withRouter(StgPage)

@@ -44,9 +44,36 @@ class LyricsPage extends React.Component {
                     disabled
             />
             </div>
+            <div className='form-group lyrics-btn-group'>
+              <div className='admin-header col-sm-3'>
+                  <button  name='update'
+                           onClick= {(e) => {
+                             e.preventDefault();
+                             this.props.router.push('/links/'+[this.state.title, this.state.category, true, true])
+                           }}
+                           className='btn btn-success form-control add'>
+                       Edit the Lyrics
+                  </button>
+              </div>
+
+              <div className='admin-header col-sm-3 audio'>
+
+              </div>
+
+              <div className='admin-header col-sm-3'>
+                  <button
+                       name='update'
+                       onClick = { (e) => { e.preventDefault();
+                         this.props.router.push('/' + this.state.category)}}
+                       className='btn btn-primary form-control video'>
+                       Back to Song List
+                  </button>
+              </div>
+            </div>
 
             <div className='table-div' >
             <div className="lyrics">
+            <div className='form-group'>
             <p>
               <strong>
                 <Link to={'/details/'+this.state.category+"/"+this.state.title}>
@@ -54,6 +81,7 @@ class LyricsPage extends React.Component {
                 </Link>
               </strong>
             </p>
+            </div>
             {this.state.lyrics.split("%%").map((line) =>
             <p>{line === "$$" ? <br/>: (line.includes("Chorus") || line.includes("Bridge") || line.includes("Verse") || line.includes("Climax")) ? <strong>{line}</strong> : line}</p>
 

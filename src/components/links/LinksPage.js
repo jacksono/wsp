@@ -11,10 +11,34 @@ class LinksPage extends React.Component {
     this.state = {
       lyrics: '',
       clicked: false,
+      title: '',
+      hasLyrics: false,
+      category: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.handleLyricsLink = this.handleLyricsLink.bind(this);
+  }
+
+  componentDidMount(){
+    this.setState({
+      title: this.props.params.song.split(',')[0],
+      hasLyrics: this.props.params.song.split(',')[2],
+      category: this.props.params.song.split(',')[1]
+    })
+    if(this.props.params.song.split(',').length === 4){
+      this.setState({clicked: true})
+      apiCall(null, 'get', 'lyrics/' + this.props.params.song.split(',')[0])
+      .then((response) => {
+          let lyrc = response.lyrics.replace(/%%/g, "\n")
+          let finl = ''
+          lyrc.split("$$").map(line => {
+            finl += line
+          })
+          this.setState({ lyrics: finl})
+        }).catch(error => (error));
+    }
   }
 
   handleChange(event) {
@@ -27,17 +51,38 @@ class LinksPage extends React.Component {
   handleSave(e){
     e.preventDefault()
     let payload = { lyrics:this.state.lyrics.replace(/\n/g, "%%") }
-    this.props.router.push('/lyrics/'+this.props.params.song+"/"+this.state.lyrics);
-    apiCall(payload, 'post', 'lyrics/'+this.props.params.song)
-    toastr.success("Lyrics Saved Successfully")
-    apiCall({title: this.props.params.song, lyrics: "True"}, 'put', "praise" + '/' + this.props.params.song)
-    .then((response) => {
-        toastr.success("Changes Saved Successfully")
-      })
+    if(this.state.hasLyrics !== "true"){
+      apiCall(payload, 'post', 'lyrics/'+this.state.title)
+      toastr.success("Lyrics Saved Successfully")
+      apiCall({title: this.state.title, lyrics: "True"}, 'put', this.state.category + '/' + this.state.title)
+      .then((response) => {
+          toastr.success("Lyrics link generated")
+        })
+    }
+    else{
+      apiCall(payload, 'put', 'lyrics/'+this.state.title)
+      toastr.success("Lyrics Updated Successfully")
+    }
+    this.props.router.push('/lyrics/'+[this.state.title,this.state.category]+"/"+this.state.lyrics);
+  }
+
+  handleLyricsLink(e){
+    e.preventDefault();
+    if(this.state.hasLyrics === "true"){
+      apiCall(null, 'get', 'lyrics/' + this.state.title)
+      .then((response) => {
+          let lyrc = response.lyrics.replace(/%%/g, "\n")
+          let finl = ''
+          lyrc.split("$$").map(line => {
+            finl += line
+          })
+          this.setState({ lyrics: finl})
+        }).catch(error => (error));
+    }
+    this.setState({clicked: true })
   }
 
   render() {
-    console.log(this.state.lyrics.replace(/\n/g, "%%"))
     return (
         <div>
         <form className='form-horizontal'>
@@ -56,9 +101,9 @@ class LinksPage extends React.Component {
             <div className='form-group '>
               <div className='admin-header col-sm-3'>
                   <button  name='update'
-                           onClick= {() => {this.setState({clicked: true})}}
+                           onClick= {this.handleLyricsLink}
                            className='btn btn-default form-control add'>
-                       ADD LYRICS
+                       {this.state.hasLyrics === "true" ? "EDIT LYRICS" : "ADD LYRICS"}
                   </button>
               </div>
 
@@ -116,7 +161,7 @@ class LinksPage extends React.Component {
           {this.state.clicked &&
               <div className=' forn-group table-div'>
               <div>
-              <p className='lyrics-head'>Lyrics for {this.props.params.song} </p>
+              <p className='lyrics-head'>Lyrics for {this.state.title} </p>
               <textarea value={this.state.lyrics}
                         name='lyrics'
                         placeholder="Start typing here"

@@ -41,9 +41,9 @@ class CategoriesPage extends React.Component {
 
             <div className='form-group'>
               <div className=' category col-sm-5'>
-              <Link to ="/s2g">
+              <Link to ="/stg">
                   <input className='btn-home form-control'
-                         name='s2g'
+                         name='stg'
                          type='button'
                          value='SONGS TO GLORY'
                          onClick=''
