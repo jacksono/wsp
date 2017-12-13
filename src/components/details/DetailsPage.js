@@ -26,6 +26,7 @@ class DetailsPage extends React.Component {
       created: '',
       updated: '',
       editable: false,
+      lyrics: '',
       song: {}
 
     };
@@ -35,6 +36,7 @@ class DetailsPage extends React.Component {
   this.handleCancel = this.handleCancel.bind(this);
   this.handleAddLink = this.handleAddLink.bind(this);
   this.fetchSongDetails = this.fetchSongDetails.bind(this);
+  this.handleLyrics = this.handleLyrics.bind(this);
   }
 
   componentWillMount(){
@@ -52,6 +54,7 @@ class DetailsPage extends React.Component {
                         language: s.language,
                         tempo: s.tempo,
                         comment: s.comment,
+                        lyrics: s.lyrics,
                         created: s.created,
                         updated: s.updated,
                         errorCategory: false,
@@ -59,6 +62,7 @@ class DetailsPage extends React.Component {
                         })
       }).catch(error => (error));
   }
+
   handleChange(event) {
     const { name, value } = event.target;
     event.preventDefault();
@@ -77,6 +81,7 @@ class DetailsPage extends React.Component {
     e.preventDefault()
     this.setState({editable: true})
   }
+
   handleSave(e){
     e.preventDefault()
     let error = false
@@ -109,6 +114,7 @@ class DetailsPage extends React.Component {
       toastr.error("ERROR WHILE UPDATING")
     }
   }
+
   handleCancel(e){
     e.preventDefault();
     this.fetchSongDetails();
@@ -125,6 +131,19 @@ class DetailsPage extends React.Component {
     }
     else{this.props.router.push('/links/'+this.state.title)}
   }
+
+  handleLyrics(e){
+    e.preventDefault();
+    if(this.state.lyrics === "True"){
+      this.props.router.push('/lyrics/'+[this.state.title,this.state.category]+'/ ')
+    }
+    else{
+      toastr.error("No Lyrics added yet, Click Add link to add new Lyrics")
+    }
+
+
+  }
+
   render() {
     return (
         <div>
@@ -200,12 +219,9 @@ class DetailsPage extends React.Component {
                 <div className='col-sm-3 btn-link'>
                     <button type='submit'
                          name='update'
-                         className='btn btn-success form-control'
-                         onClick = {(e) => {
-                           e.preventDefault()
-                           toastr.info("This action is not yet active ")
-                         }}>
-                         ADD DATE
+                         className='btn btn-primary form-control'
+                         onClick = {this.handleLyrics}>
+                         GO TO LYRICS
                     </button>
                 </div>
               </div>
@@ -293,6 +309,17 @@ class DetailsPage extends React.Component {
                             value={this.state.created.slice(0,16)}
                             disabled
                     />
+                </div>
+                <div className='col-sm-3 btn-link'>
+                    <button type='submit'
+                         name='update'
+                         className='btn btn-success form-control'
+                         onClick = {(e) => {
+                           e.preventDefault()
+                           toastr.info("This action is not yet active ")
+                         }}>
+                         ADD DATE
+                    </button>
                 </div>
               </div>
               {this.state.updated &&
