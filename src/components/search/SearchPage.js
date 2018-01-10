@@ -43,14 +43,14 @@ class SearchPage extends React.Component {
     this.setState({searchedSongs: songData})
     }
 
-    toggleForm(){
-      this.setState({toggleSearch: false,
-        toggleResults: true})
-      }
-    toggleTable(){
-      this.setState({toggleSearch: true,
-        toggleResults: false})
-      }
+  toggleForm(){
+    this.setState({toggleSearch: false,
+      toggleResults: true})
+    }
+  toggleTable(){
+    this.setState({toggleSearch: true,
+      toggleResults: false})
+    }
 
   render() {
     return (
